@@ -1,6 +1,6 @@
 <?php
-include('../utility/utility.php');
-echo "enter the year ";\
-fscanf(STDIN,"%d",$number);
-leapyear($number);
+include('utility.php');
+echo "enter the year ";
+$year=getInt();
+leapyear($year);
 ?>
