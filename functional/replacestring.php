@@ -3,6 +3,6 @@ include('utility.php');
 $String= " Hello <<UserName>>, How are you? ";
 echo "enter the name to replace :";
 $name=getString();
-$String3=str_replace("<<UserName>>",$name,$String2);
+$String3=str_replace("<<UserName>>",$name,$String);
  echo $String3;
 ?>

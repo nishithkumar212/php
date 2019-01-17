@@ -11,16 +11,31 @@ function leapyear($year1)
 function getInt()
 {
     fscanf(STDIN,"%d",$integer);
+    while(!is_numeric($integer))
+    {
+        echo "invalid input try again";
+        fscanf(STDIN,"%d",$integer);
+    }
     return $integer;
 }
 function getString()
 {
     fscanf(STDIN,"%s",$string);
+    while(!is_String($string))
+    {
+        echo "invalid input try again";
+        fscanf(STDIN,"%s",$string);
+    }
     return $string;
 }
 function getFloat()
 {
     fscanf(STDIN,"%f",$float);
+    while(!is_Float($float))
+    {
+        echo "invalid input try again";
+        fscanf(STDIN,"%d",$float);
+    }
     return $float;
 }
 function TwoDarray($rows,$columns)
@@ -52,12 +67,13 @@ for($index=0;$index<$number;$index++)
 }
 for($index=0;$index<sizeof($myarray);$index++)
 {
-    echo $myarray[$index];
+
 }
     $uniquearray=array_unique($myarray);
-    for($index=0;$index<sizeof($uniquearray);$index++)
+    $arr = array_values($uniquearray);
+    for($index=0;$index<sizeof($arr);$index++)
     {
-     echo $uniquearray[$index]."\n";
+     echo $arr[$index]."\n";
     }
 }
 function distance($x,$y)
@@ -75,13 +91,13 @@ function primeFactors($number)
     }
 for($index=3;$index<=$number;$index=$index+2)
     {
-  if($number%$index==0)
-    {
-     echo $index;
+        while($number%$index==0)
+        {
+            echo $index;
+            $number=$number/$index;
+        }
     }
-  $number=$number/$index;
     }
-}
 function flip($number)
 {
     $heads=0;
