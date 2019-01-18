@@ -1,4 +1,12 @@
 <?php
+/**
+* Purpose:  Reads in integers prints them in sorted order using Bubble Sort
+* @author :Nishithkumar
+* @version :1.0
+* @since :15-01-2019
+*
+******************************************************************************/  
+
 include('Alutility.php');
 $myfile=fopen("int.txt","r")or die("Unable to open file!");
 echo fread($myfile,filesize("int.txt"));

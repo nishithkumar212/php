@@ -1,33 +1,53 @@
 <?php
 class Alutility {
+/**function to get the integer values */
 public static function getInt()
 {
     fscanf(STDIN,"%d",$integer);
+    while(!is_numeric($integer)||($integer/(int)$integer)>1)
+    {
+        echo "invalid input";
+        fscanf(STDIN,"%d",$integer);
+    }
     return $integer;
 }
+/**function to get the string values */
 public static function getString()
 {
     fscanf(STDIN,"%s",$string);
+    while(is_numeric($string)) // validating the given string to check whether it is string or not
+    {
+        echo "invalid input try again";
+        fscanf(STDIN,"%s",$string);
+    }
     return $string;
 }
+/**function to get the float values */
 public static function getFloat()
 {
-    fscanf(STDIN,"%f",$float);
+    fscanf(STDIN,"%f",$float); 
+    while(!is_float($float)) //validating the given input is float or not
+    {
+        echo "invalid input try again";
+        fscanf(STDIN,"%f",$float);
+    }
     return $float;
 }
+/**function to check whether the given strings are anagrams or not to each other */
 public static function anagram($String1,$String2)
 {
-    $len1=strlen($String1);
-    $len2=strlen($String2);
-    if($len1==$len2)
+    $len1=strlen($String1); //calculating the 1string len
+    $len2=strlen($String2); // calculating  the 2 string len
+
+    if($len1==$len2) // validating the lengths are equal or not
     {
-        $array1=str_split($String1);
+        $array1=str_split($String1); // splitting the string in to array
         $array2=str_split($String2);
-        sort($array1);
+        sort($array1); // sorting the array
         sort($array2);
-        $string3=implode("",$array1);
+        $string3=implode("",$array1); //converting in to string
         $string4=implode("",$array2);
-        if($string3==$string4)
+        if($string3==$string4) // converting both are equal or not
         {
             echo "given strings are anagram to each other"."\n";
         }
@@ -38,21 +58,22 @@ public static function anagram($String1,$String2)
     }
     echo "both are not anagrams"."\n";
 }
+/**function to calculate primnumbers  */
 public static  function primes($number)
 {
     $i=0;
-    $primes1=array();
-     for($indexi=1;$indexi<=$number;$indexi++)
+    $primes1=array(); // declaring an array
+     for($indexi=1;$indexi<=$number;$indexi++) //iterating through the loop
      {
         $count=0;
-        for($indexj=$indexi;$indexj>=1;$indexj--)
+        for($indexj=$indexi;$indexj>=1;$indexj--) 
         {
-            if($indexi%$indexj == 0)
+            if($indexi%$indexj == 0) // checking the condition of primenumber
             {
                 $count=$count+1;
             }
         }
-        if( $count==2)
+        if( $count==2) //equating with 2
         {
             $primes1[$i]=$indexi;
             $i++;
@@ -63,32 +84,35 @@ public static  function primes($number)
         
          echo $primes1[$index]." ,";
      }
+     return $primes1;
 }
+/** function to check whether it is palindrome or not */
 public static function palindrome($primearray)
 {
     $rev=0;
     $i=0;
-    $primes1=array();
+    echo " the palindromes are:";
     for($indexi=0;$indexi<sizeof($primearray);$indexi++)
     {
         $num=$primearray[$indexi];
-        while($num>0)
-        {
-        $ld=$num%10;
-        $rev=$rev*10+$ld;
-        $num=$num/10;
-        }
+        // while($num>0)
+        // {
+        // $ld=$num%10;
+        // $rev=$rev*10+$ld;
+        // $num=$num/10;
+        // }
+        $rev = strrev("$num");
+    
         if($num==$rev)
         {
-            $primes1[$i]=$num;
-            $i++;
+          echo  $primearray[$indexi]."  ";
         }
     }
-    for($index=0;$index<sizeof($primes1);$index++)
-     {
+    // for($index=0;$index<sizeof($primes1);$index++)
+    //  {
         
-         echo $primes1[$index]." ,";
-     }
+    //      echo $primes1[$index]." ,";
+    //  }
 }
 public static function primeanagrams($prime)
 {
@@ -102,12 +126,12 @@ public static function primeanagrams($prime)
         }
     }
 }
+/**function to calculate index of an given element by using binarysearch algorithm */
  public static function binarySearch($array1,$key)
 {
 $start=0;
 $end=sizeof($array1);
 $mid=round($start+$end/2);
-echo $mid;
 while($start<=$end)
 {
     if($key==$array1[$mid])
@@ -124,6 +148,7 @@ while($start<=$end)
     }
 }
 }
+/**function to calculate index of an given string by using binarysearch algorithm */
 public static function binarySearchstring($Array1,$key)
 {
     $start=0;
@@ -137,16 +162,17 @@ public static function binarySearchstring($Array1,$key)
             echo "the element found at index ".$mid;
             break;
         }
-        else if(strcmp($Array1[$mid],$key>0))
+        else if(strcmp($key,$Array1[$mid]>0))
         {
             $start=$mid+1;
         }
-        else if(strcmp($Array1[$mid],$key<0))
+        else if(strcmp($key,$Array1[$mid]<0))
         {
             $end=$mid-1;
         }
     }
 }
+/**function to calculate sorting of integers by using bubblesort algorithm */
 public static function bubblesort($Array1)
 {
     for($indexi=0;$indexi<sizeof($Array1)-1;$indexi++)
@@ -168,11 +194,12 @@ public static function bubblesort($Array1)
         echo $Array1[$indexi]. " ";
     }
 }
+/**function to calculate sorting of strings by using bubblesort algorithm */
 public static function bubblesortString($Array1)
 {
-    for($indexi=0;$indexi<sizeof($Array1)-1;$indexi++)
+    for($indexi=0;$indexi<sizeof($Array1-1);$indexi++)
     {
-        for($indexj=0;$indexj<sizeof($Array1)-1;$indexj++)
+        for($indexj=0;$indexj<sizeof($Array1-1);$indexj++)
         {
             if(strcmp($Array1[$indexj],$Array1[$indexj+1])>0)
             {
@@ -188,6 +215,7 @@ public static function bubblesortString($Array1)
         echo $Array1[$indexi]." ";
     }
 }
+/**function to calculate sorting of integers by using insertionsort */
 public static function insertionsort($Array1)
 {
     for($indexi=1;$indexi<sizeof($Array1);$indexi++)
@@ -207,6 +235,7 @@ public static function insertionsort($Array1)
         echo $Array1[$indexi];
     }
 }
+/**function to calculate sorting of strings by using insertionsort */
 public static function insertionsortstring($array1)
 {
     for($i=1;$i<sizeof($array1);$i++)
@@ -235,13 +264,14 @@ public static function length($array1)
     $len=sizeof($array1);
     echo $len;
 }
+/**function to calculate the day name  */
 public static function calculateDayofWeek($day,$month,$year)
 {
-        $y0 = floor($year -(14 - $month) / 12)+1;
-        $x = floor($y0 + ($y0/4) - ($y0/100) + $y0/400);
+        $y0 = $year -(14 - $month) / 12;
+        $x = $y0 + ($y0/4) - ($y0/100) + $y0/400;
         $m0 = $month + 12 * ((14 - $month) / 12)-2;
-        $d0 = floor($day + $x + 31*$m0 / 12)%7;
-         $d0;`
+        $d0 = ($day + $x + 31*$m0 / 12)%7;
+         $d0;
         
         switch($d0)
         {
@@ -261,15 +291,73 @@ public static function calculateDayofWeek($day,$month,$year)
                     break;
         }
 }
+/**function to calculate from celcius degree to  fahrenheit*/
 public static function  fahreinconversion($celcius)
 {
         $fahrenheit= ($celcius * 9/5) + 32;
         echo $fahrenheit;
 }
+/**function to calculate from fahrenheit degree to  celcius*/
 public static function celciusconversion($fahrenheit)
 {
         $celcius=($fahrenheit-32)* 5/9;
         echo $celcius;
 }
+//function to calculate the rate of interest
+public static function monthlypayment($P,$Y,$R)
+{
+    $n=12*$Y;
+    $r=$R/(12*100);
+    $power=1-pow(1+$r,-$n);
+    $payment=$P*$r/$power;
+    echo "the amount is:"."\n";
+    echo $payment;
+    echo "\n";
+}
+//function to calculate the how many notes you have
+public static function vendingCalculate($array1,$money)
+{
+    $i=0;
+ while($money>0)
+ {
+     while($money>=$array1[$i])
+     {
+         $notes=floor($money/$array1[$i]);
+        echo $array1[$i]. "notes are:".$notes."\n";
+        echo "\n";
+        $money=floor($money%$array1[$i]);
+        }
+        $i++;
+ }
+}
+public static function  binary($number)
+{
+    $array1=array();
+    $i=0;
+    while($number>0)
+    {
+    $array1[$i]=$number%2;
+    $number=$number/2;
+    $i++;
+    }
+    // $reverse=array();
+    // $reverse=array_reverse($array1);
+    // $len=count($reverse);
+    // echo $len;
+    for($j=0;$j<sizeof($array1);$j++)
+    { 
+        echo $array1[$j];
+    
+    }
+    // decimal($reverse);
+}
+// public static function decimal($number)
+// {
+
+//     for($i=sizeof($number-1);$i>=0;$i--)
+//     {
+//         echo $number[$i];
+//     }
+// }
 }
 ?>
