@@ -3,11 +3,11 @@ class Alutility {
 /**function to get the integer values */
 public static function getInt()
 {
-    fscanf(STDIN,"%d",$integer);
-    while(!is_numeric($integer)||($integer/(int)$integer)>1)
+    fscanf(STDIN,"%s",$integer);
+      while (!is_numeric($integer) || $integer >(int) $integer )
     {
         echo "invalid input";
-        fscanf(STDIN,"%d",$integer);
+        fscanf(STDIN,"%s",$integer);
     }
     return $integer;
 }
@@ -81,8 +81,7 @@ public static  function primes($number)
     }
      for($index=0;$index<sizeof($primes1);$index++)
      {
-        
-         echo $primes1[$index]." ,";
+
      }
      return $primes1;
 }
@@ -116,27 +115,37 @@ public static function palindrome($primearray)
 }
 public static function primeanagrams($prime)
 {
-    for($indexi=0;$indexi<sizeof($prime);$index++)
+    echo " the prime anagrams are:";
+    $i=0;
+    for($indexi=0;$indexi<sizeof($prime);$indexi++)
     {
         for($indexj=$indexi+1;$indexj<sizeof($prime);$indexj++)
         {
-            sort($prime[$indexi]);
-            sort($prime[$indexj]);
-
+               $num=$prime[$indexj];
+               $array1=str_split("$num");
+                sort($array1);
+                $rev=implode("",$array1);
+                if($prime[$indexi]==$rev)
+                {
+                    echo $prime[$indexi]." ";
+                    echo $prime[$indexj]." ";
+                }
         }
+       
     }
 }
 /**function to calculate index of an given element by using binarysearch algorithm */
  public static function binarySearch($array1,$key)
 {
 $start=0;
-$end=sizeof($array1);
+$end=sizeof($array1)-1;
 $mid=round($start+$end/2);
 while($start<=$end)
 {
     if($key==$array1[$mid])
     {
         echo "the element found at".$mid;
+        break;
     }
     else if($key>$array1[$mid])
     {
@@ -151,26 +160,33 @@ while($start<=$end)
 /**function to calculate index of an given string by using binarysearch algorithm */
 public static function binarySearchstring($Array1,$key)
 {
+    
     $start=0;
-    $end=sizeof($Array1);
-   
+    $end=sizeof($Array1)-1;
+     if($start>$end)
+{ 
+    echo " element not found";
+} 
+else
+{
     while($start<=$end)
     {
-        $mid=round(($start+$end)/2);
-        if(strcmp($Array1[$mid],$key==0))
+        $mid=floor(($start+$end)/2);
+        if(strcmp($Array1[$mid],$key) ==0)
         {
             echo "the element found at index ".$mid;
             break;
         }
-        else if(strcmp($key,$Array1[$mid]>0))
+        else if(strcmp($Array1[$mid],$key) < 0)
         {
             $start=$mid+1;
         }
-        else if(strcmp($key,$Array1[$mid]<0))
+        else if(strcmp($Array1[$mid],$key) > 0)
         {
             $end=$mid-1;
         }
     }
+}
 }
 /**function to calculate sorting of integers by using bubblesort algorithm */
 public static function bubblesort($Array1)
@@ -188,7 +204,6 @@ public static function bubblesort($Array1)
         }
     }
     echo "after sorting:";
-    echo "\n";
     for($indexi=0;$indexi<sizeof($Array1);$indexi++)
     {
         echo $Array1[$indexi]. " ";
@@ -267,10 +282,10 @@ public static function length($array1)
 /**function to calculate the day name  */
 public static function calculateDayofWeek($day,$month,$year)
 {
-        $y0 = $year -(14 - $month) / 12;
-        $x = $y0 + ($y0/4) - ($y0/100) + $y0/400;
-        $m0 = $month + 12 * ((14 - $month) / 12)-2;
-        $d0 = ($day + $x + 31*$m0 / 12)%7;
+        $y0 = floor($year -(14 - $month) / 12)+1;
+        $x = floor($y0 + $y0/4 - $y0/100 + $y0/400);
+        $m0 = ($month + 12 *floor ((14 - $month) / 12))-2;
+        $d0 = floor($day + $x +floor(31*$m0 / 12))%7;
          $d0;
         
         switch($d0)
@@ -332,32 +347,227 @@ public static function vendingCalculate($array1,$money)
 }
 public static function  binary($number)
 {
+    $starttime=
     $array1=array();
     $i=0;
     while($number>0)
     {
-    $array1[$i]=$number%2;
-    $number=$number/2;
+    $array1[$i]=floor($number%2);
+    $number=floor($number/2);
     $i++;
     }
-    // $reverse=array();
-    // $reverse=array_reverse($array1);
-    // $len=count($reverse);
-    // echo $len;
-    for($j=0;$j<sizeof($array1);$j++)
-    { 
-        echo $array1[$j];
+    $reverse=array_reverse($array1);
     
-    }
-    // decimal($reverse);
+    // for($j=0;$j<sizeof($reverse);$j++)
+    // { 
+    //     echo $reverse[$j];
+    // }
+    //echo "\n";
+    return $reverse;
+    //Alutility::decimal($reverse);
 }
-// public static function decimal($number)
-// {
+public static function decimal($array1)
+{
+    $decimal=0;
+    $j=0;
+  for($i=sizeof($array1)-1;$i>=0;$i--)
+  {
+      $power=pow(2,$j);
+      $decimal=$decimal+$power*$array1[$i];
+      $j++;
+  }
+  echo "the decimal value is:".$decimal;
+}
+public static function binarySearchfile($array1,$key)
+{
+$start=$start_time = round(microtime(true) * 1000);
+$end=sizeof($array1)-1;
+$mid=round($start+$end/2);
+while($start<=$end)
+{
+    if($key==$array1[$mid])
+    {
+        echo "the element found at".$mid;
+        break;
+    }
+    else if($key>$array1[$mid])
+    {
+        $start=$mid++;
+    }
+    else
+    {
+        $end=$mid--;
+    }
+    $stop_time = round(microtime(true) * 1000);
+    $elapsed=$stop_time-$start_time;
+    return $elapsed;
+}
+}
+public static function binarySearchstringfile($Array1,$key)
+{
+    $start=$start_time = round(microtime(true) * 1000);
+    $start=0;
+    $end=sizeof($Array1)-1;
+ if($start>$end)
+{ 
+    echo " element not found";
+} 
+else
+{
 
-//     for($i=sizeof($number-1);$i>=0;$i--)
-//     {
-//         echo $number[$i];
-//     }
-// }
+    while($start<=$end)
+    {
+        $mid=floor(($start+$end)/2);
+        if(strcmp($Array1[$mid],$key) ==0)
+        {
+            echo "the element found at index ".$mid;
+            break;
+        }
+        else if(strcmp($Array1[$mid],$key) < 0)
+        {
+            $start=$mid+1;
+        }
+        else if(strcmp($Array1[$mid],$key) > 0)
+        {
+            $end=$mid-1;
+        }
+    }
+    $stop_time = round(microtime(true) * 1000);
+    $elapsed=$stop_time-$start_time;
+    return $elapsed;
+}
+}
+public static function bubblesortfile($Array1)
+{
+    $start_time = round(microtime(true) * 1000);
+    for($indexi=0;$indexi<sizeof($Array1)-1;$indexi++)
+    {
+        for($indexj=0;$indexj<sizeof($Array1)-1;$indexj++)
+        {
+            if($Array1[$indexj]>$Array1[$indexj+1])
+            {
+                $temp=$Array1[$indexj];
+                $Array1[$indexj]=$Array1[$indexj+1];
+                $Array1[$indexj+1]=$temp;
+            }
+        }
+    }
+    echo "after sorting:";
+    for($indexi=0;$indexi<sizeof($Array1);$indexi++)
+    {
+        echo $Array1[$indexi]. "\n ";
+    }
+    $stop_time = round(microtime(true) * 1000);
+    echo "\n";
+    $elapsed=floor($stop_time-$start_time);
+     echo $elapsed;
+}
+public static function bubblesortStringfile($Array1)
+{ 
+    $start_time = round(microtime(true) * 1000);
+    for($indexi=0;$indexi<sizeof($Array1)-1;$indexi++)
+    {
+        for($indexj=0;$indexj<sizeof($Array1)-1;$indexj++)
+        {
+            if(strcmp($Array1[$indexj],$Array1[$indexj+1])>0)
+            {
+                $temp=$Array1[$indexj];
+                $Array1[$indexj]=$Array1[$indexj+1];
+                $Array1[$indexj+1]=$temp;  
+            }
+        }
+    }
+    echo "after sorting:"."\n";
+    for($indexi=0;$indexi<sizeof($Array1);$indexi++)
+    {
+        echo $Array1[$indexi]."\n ";
+    }
+    $stop_time = round(microtime(true) * 1000);
+    $elapsed=$stop_time-$start_time;
+     echo  $elapsed;
+}
+public static function insertionsortfile($Array1)
+{ 
+    $start_time = round(microtime(true) * 1000);
+    for($indexi=1;$indexi<sizeof($Array1);$indexi++)
+    {
+	    		$key=$Array1[$indexi];
+		    	$indexj=$indexi-1;
+			while($indexj>=0&& $Array1[$indexj]>$key)
+			{
+                $Array1[$indexj+1]= $Array1[$indexj];
+                $indexj--;
+			}
+			$Array1[$indexj+1]=$key;
+    }
+    echo "after sorting the elements are:";
+    for($indexi=0;$indexi<sizeof($Array1);$indexi++)
+    {
+        echo $Array1[$indexi]." \n";
+    }
+    $stop_time = round(microtime(true) * 1000);
+    $elapsed=$stop_time-$start_time;
+    echo $elapsed;
+}
+/**function to calculate sorting of strings by using insertionsort */
+public static function insertionsortstringfile($array1)
+{ 
+    $start_time = round(microtime(true) * 1000);
+    for($i=1;$i<sizeof($array1);$i++)
+    {
+        $key=$array1[$i];
+        $j=$i-1;
+        while($j>=0) {
+            if(strcmp($key,$array1[$j])>0)
+            {
+                break;
+            }
+            $array1[$j+1] = $array1[$j];
+            $j--;
+        }
+        $array1[$j+1]=$key;
+        echo "\n";
+    }
+    echo "after sorting the elements are:";
+    for($indexi=0;$indexi<sizeof($array1);$indexi++)
+    {
+        echo $array1[$indexi]."  ";
+    }
+    $stop_time = round(microtime(true) * 1000);
+     $elapsed=$stop_time-$start_time;
+     echo $elapsed;
+}
+public static function squareroot($number)
+{
+	$t=$number;
+	 $epsilon = 1e-15;
+		while(abs($t -$number/$t)>$epsilon*$t)
+		{
+			$t=($number/$t+$t)/2;
+        }
+         echo $t;
+}
+public static function findnumber($array1,$key)
+{
+    $start=0;
+    $end=sizeof($array1)-1;
+    $mid=($start+$end)/2;
+    while($start<=$mid)
+    {
+            if($mid==$key)
+            {
+                echo "the element you searched is ".$array1[$mid];
+                break;
+            }
+            else if($key>$mid)
+            {
+                $end=$mid++;
+            }
+            else if($key<$mid)
+            {
+                $end=$mid--;
+            }
+    }
+}
 }
 ?>

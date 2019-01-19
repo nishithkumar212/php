@@ -7,15 +7,15 @@
 *
 ******************************************************************************/  
 
-include('Alutility.php');
-$myfile=fopen("String.txt","r") ;
-$string=fgets($myfile);
-echo $string;
+include('Alutility.php');//including the file
+$myfile=fopen("String.txt","r") ; //opening the file and storing in a file
+$string=fgets($myfile); //retrieving the file
+echo $string; // printing the file content
 echo "\n";
-$array1=explode(" ",$string);
-for($i=0;$i<sizeof($array1);$i++)
+$array1=explode(" ",$string); // converting in to string
+for($i=0;$i<sizeof($array1);$i++) //iterating through the loop
 {
-    echo $array1[$i];
+    echo $array1[$i]; // printing the index of an array
 }
-Alutility::insertionsortstring($array1);
+Alutility::insertionsortstring($array1); //calling the method 
 ?>

@@ -1,11 +1,16 @@
 
 <?php
-
 include('Alutility.php');
-// $array1=array("hari","mahi","suri","nishu","bujji","bangaram");
-// Alutility::insertionsortstring($array1);
-$arr=array(1,3,5,7,1);
-$key=12;
- Alutility::binarySearch($arr,$key);
+echo "1.buublesortint 2.bubblesortstring 3.insertionsort 4.insertionsortstring";
+$array1=array('12','24','2','34','26'); 
+$array2=array("x","a","t","p","r");
+Alutility::bubblesortfile($array1);
+// echo "bubblesort int stopwatch time is:".$time;
+Alutility::bubblesortStringfile($array2);
+// echo "bubblesort string stopwatch time is:".$time;
+Alutility::insertionsortfile($array1);
+// echo "insertionsort int stopwatch time is:".$time;
+Alutility::insertionsortstringfile($array2);
+// echo "insertionsort string  stopwatch time is:".$time;
 ?>
 

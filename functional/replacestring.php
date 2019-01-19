@@ -6,7 +6,6 @@
 * @since 15-01-2019
 *
 ******************************************************************************/  
-
 include('utility.php');// including the utility file
 $String= " Hello <<UserName>>, How are you? "; // string
 echo $String."\n";

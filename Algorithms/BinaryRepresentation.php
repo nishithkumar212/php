@@ -2,7 +2,10 @@
 include('Alutility.php');
 echo "enter the decimal value:";
 $number=Alutility::getInt();
-Alutility::binary($number);
-// $number2=10000;
-// Alutility::decimal($number2);
+$arr=Alutility::binary($number);
+for($j=0;$j<sizeof($arr);$j++)
+    { 
+        echo $arr[$j];
+    }
+    Alutility::decimal($arr);
 ?>
