@@ -73,9 +73,12 @@ class utility
             $myarray[$index] = $value;
         }
         for ($index = 0; $index < sizeof($myarray); $index++) {
+            echo $myarray[$index]." ";
         }
+        echo "\n";
         $uniquearray = array_unique($myarray);
         $arr = array_values($uniquearray);
+        echo " the distinct coupon numbers are: \n";
         for ($index = 0; $index < sizeof($arr); $index++) {
             echo $arr[$index] . "\n";
             $distinct++;
@@ -112,9 +115,11 @@ class utility
         $harmonic = 0.0;
         for ($index = 1; $index <= $number; $index++) {
             $harmonic = $harmonic + (1 / $index);
+
             echo "1"."/".$index ."+";
         }
-        echo $harmonic;
+        echo "\n";
+        echo "the value is:".$harmonic;
     }
     // function to flip the coin and calculate percentage of heads and tails
     public static function flip($number)
@@ -212,15 +217,17 @@ class utility
     public static function triplets($number)
     {
         $array1 = array();
+
         echo " enter the " . $number . " elements for an array";
         echo "\n";
         for ($i = 0; $i < $number; $i++) {
-            $array1 = utility::getInt();
+            $array1[$i] = utility::getInt();
         }
+        print_r($array1);
         for ($i = 0; $i < sizeof($array1); $i++) {
             for ($j = $i+1; $j < sizeof($array1); $j++) {
                 for ($k = $j+1; $k < sizeof($array1); $k++) {
-                    if ($array1[$i] + $array1[$j] + $array1[$k] == 0) {
+                    if (($array1[$i]+$array1[$j]+$array1[$k] )== 0) {
                         echo $array1[$i] . " " . $array1[$j] . " " . $array1[$k];
                     }
                 }

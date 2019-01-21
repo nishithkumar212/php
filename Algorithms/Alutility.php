@@ -14,13 +14,13 @@ public static function getInt()
 /**function to get the string values */
 public static function getString()
 {
-    fscanf(STDIN,"%s",$string);
-    while(is_numeric($string)) // validating the given string to check whether it is string or not
+    fscanf(STDIN,"%s",$str);
+    while(is_numeric($str)) // validating the given string to check whether it is string or not
     {
         echo "invalid input try again";
-        fscanf(STDIN,"%s",$string);
+        fscanf(STDIN,"%s",$stt);
     }
-    return $string;
+    return $str;
 }
 /**function to get the float values */
 public static function getFloat()
@@ -56,7 +56,10 @@ public static function anagram($String1,$String2)
             echo "given stings are not anagrams"."\n";
         }
     }
-    echo "both are not anagrams"."\n";
+    else{
+        echo "hiven are not anagrams:";
+    }
+    
 }
 /**function to calculate primnumbers  */
 public static  function primes($number)
@@ -156,22 +159,17 @@ while($start<=$end)
         $end=$mid--;
     }
 }
+
 }
 /**function to calculate index of an given string by using binarysearch algorithm */
 public static function binarySearchstring($Array1,$key)
 {
     
     $start=0;
-    $end=sizeof($Array1)-1;
-     if($start>$end)
-{ 
-    echo " element not found";
-} 
-else
-{
+    $end=sizeof($Array1);
     while($start<=$end)
     {
-        $mid=floor(($start+$end)/2);
+        $mid=floor($start+($end-$start)/2);
         if(strcmp($Array1[$mid],$key) ==0)
         {
             echo "the element found at index ".$mid;
@@ -185,8 +183,11 @@ else
         {
             $end=$mid-1;
         }
-    }
 }
+if($start>$end)
+    { 
+        echo " element not found";
+    } 
 }
 /**function to calculate sorting of integers by using bubblesort algorithm */
 public static function bubblesort($Array1)
@@ -310,13 +311,13 @@ public static function calculateDayofWeek($day,$month,$year)
 public static function  fahreinconversion($celcius)
 {
         $fahrenheit= ($celcius * 9/5) + 32;
-        echo $fahrenheit;
+        echo " after conversion in to fahrenheit ".$fahrenheit;
 }
 /**function to calculate from fahrenheit degree to  celcius*/
 public static function celciusconversion($fahrenheit)
 {
         $celcius=($fahrenheit-32)* 5/9;
-        echo $celcius;
+        echo "after conversion in to celcius:". $celcius;
 }
 //function to calculate the rate of interest
 public static function monthlypayment($P,$Y,$R)
@@ -439,7 +440,8 @@ else
 }
 public static function bubblesortfile($Array1)
 {
-    $start_time = round(microtime(true) * 1000);
+    $startpoint = floor(microtime(true) * 1000)."\n";
+    echo $startpoint;
     for($indexi=0;$indexi<sizeof($Array1)-1;$indexi++)
     {
         for($indexj=0;$indexj<sizeof($Array1)-1;$indexj++)
@@ -452,19 +454,20 @@ public static function bubblesortfile($Array1)
             }
         }
     }
-    echo "after sorting:";
+    echo "after sorting: \n";
     for($indexi=0;$indexi<sizeof($Array1);$indexi++)
     {
-        echo $Array1[$indexi]. "\n ";
+        echo $Array1[$indexi]. " ";
     }
-    $stop_time = round(microtime(true) * 1000);
+    $end_point = floor(microtime(true) * 1000)."    ";
     echo "\n";
-    $elapsed=floor($stop_time-$start_time);
-     echo $elapsed;
+    echo $end_point;
+    $result=floor($end_point-$startpoint);
+     echo "the time is:".$result."\n";
 }
 public static function bubblesortStringfile($Array1)
 { 
-    $start_time = round(microtime(true) * 1000);
+    $start =floor(microtime(true) * 1000);
     for($indexi=0;$indexi<sizeof($Array1)-1;$indexi++)
     {
         for($indexj=0;$indexj<sizeof($Array1)-1;$indexj++)
@@ -480,15 +483,15 @@ public static function bubblesortStringfile($Array1)
     echo "after sorting:"."\n";
     for($indexi=0;$indexi<sizeof($Array1);$indexi++)
     {
-        echo $Array1[$indexi]."\n ";
+        echo $Array1[$indexi]."  ";
     }
-    $stop_time = round(microtime(true) * 1000);
-    $elapsed=$stop_time-$start_time;
-     echo  $elapsed;
+    $end = floor(microtime(true) * 1000);
+    $res=floor($end-$start);
+     echo  "the time is:".$res."\n";
 }
 public static function insertionsortfile($Array1)
 { 
-    $start_time = round(microtime(true) * 1000);
+    $s = floor(microtime(true) * 1000);
     for($indexi=1;$indexi<sizeof($Array1);$indexi++)
     {
 	    		$key=$Array1[$indexi];
@@ -500,19 +503,19 @@ public static function insertionsortfile($Array1)
 			}
 			$Array1[$indexj+1]=$key;
     }
-    echo "after sorting the elements are:";
+    echo "after sorting the elements are:\n";
     for($indexi=0;$indexi<sizeof($Array1);$indexi++)
     {
-        echo $Array1[$indexi]." \n";
+        echo $Array1[$indexi]."  ";
     }
-    $stop_time = round(microtime(true) * 1000);
-    $elapsed=$stop_time-$start_time;
-    echo $elapsed;
+    $e = floor(microtime(true) * 1000);
+    $r=floor($e-$s);
+    echo "the time is:".$r."\n";
 }
 /**function to calculate sorting of strings by using insertionsort */
 public static function insertionsortstringfile($array1)
 { 
-    $start_time = round(microtime(true) * 1000);
+    $first = floor(microtime(true) * 1000);
     for($i=1;$i<sizeof($array1);$i++)
     {
         $key=$array1[$i];
@@ -528,14 +531,14 @@ public static function insertionsortstringfile($array1)
         $array1[$j+1]=$key;
         echo "\n";
     }
-    echo "after sorting the elements are:";
+    echo "after sorting the elements are:\n";
     for($indexi=0;$indexi<sizeof($array1);$indexi++)
     {
         echo $array1[$indexi]."  ";
     }
-    $stop_time = round(microtime(true) * 1000);
-     $elapsed=$stop_time-$start_time;
-     echo $elapsed;
+    $second = floor(microtime(true) * 1000);
+     $e=floor($second-$first);
+     echo "the time is:".$e."\n";
 }
 public static function squareroot($number)
 {
@@ -551,22 +554,26 @@ public static function findnumber($array1,$key)
 {
     $start=0;
     $end=sizeof($array1)-1;
-    $mid=($start+$end)/2;
-    while($start<=$mid)
+    $mid=round($start+($end-$start)/2);
+    while($start<=$end)
     {
             if($mid==$key)
             {
-                echo "the element you searched is ".$array1[$mid];
-                break;
+               echo "the element you searced is :".$array1[$mid-1];
+               break;
             }
             else if($key>$mid)
             {
-                $end=$mid++;
+                $start=$mid++;
             }
             else if($key<$mid)
             {
                 $end=$mid--;
             }
+    }
+    if($start>$end)
+    {
+        echo "the searched element is not present";
     }
 }
 }

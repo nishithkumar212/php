@@ -7,5 +7,6 @@ for($j=0;$j<sizeof($arr);$j++)
     { 
         echo $arr[$j];
     }
+    echo "\n";
     Alutility::decimal($arr);
 ?>

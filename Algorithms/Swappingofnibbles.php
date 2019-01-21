@@ -26,6 +26,7 @@ for($j=0;$j<sizeof($binary);$j++)
     $str3=$str1;
     $str3=$str2.$str3;
     echo $str3;
+    echo"\n";
     $myarr=str_split($str3);
         Alutility::decimal($myarr);
     // $array1=explode(" ",$str3);

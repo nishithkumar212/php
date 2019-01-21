@@ -6,7 +6,6 @@
  * @since :15-01-2019
  *
  ******************************************************************************/
-
 include 'Alutility.php'; // including the file
 echo "enter the  first string:";
 $String1 = Alutility::getString(); // calling the function to get string type of data

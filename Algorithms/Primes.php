@@ -10,4 +10,8 @@
  echo "enter to number to find primes:";
  $number=Alutility::getInt();
  $array2=Alutility::primes($number);
+ for($i=0;$i<sizeof($array2);$i++)
+ {
+     echo $array2[$i]." ";
+ }
 ?>

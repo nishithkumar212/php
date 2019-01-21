@@ -9,13 +9,13 @@
 
  include('Alutility.php');
 $myfile=fopen("String.txt","r") ;
-$string=fread($myfile,filesize("String.txt"));
-echo $string;
+$s=fread($myfile,filesize("String.txt"));
+echo $s;
 echo "\n";
-$array=explode(" ","$string");
+$array=explode(" ","$s");
 echo "\n";
 echo "enter the word to search:";
-$string1=Alutility::getString();
- Alutility::binarySearchstring($array,$string1);
+$sp=Alutility::getString();
+ Alutility::binarySearchstring($array,$sp);
 echo "\n";
 ?>

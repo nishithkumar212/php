@@ -10,8 +10,12 @@ for($i=0;$i<$result;$i++)
     $array1[$i]=$j;
     $j++;
 }
-print_r($array1);
+for($i=0;$i<sizeof($array1);$i++)
+{
+    echo $array1[$i]."  ";
+} 
+echo "\n";
 echo "enter the element to search:";
 $search=Alutility::getInt();
-Alutility::findnumber($array1,$search);
+$number=Alutility::findnumber($array1,$search);
 ?>
