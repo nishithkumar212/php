@@ -1,0 +1,217 @@
+java is an oriented programming language 
+<?php
+class Node{
+public $next;
+public $data;
+
+function __construct($d){
+$this->data = $d;
+$this->next = null;
+}
+}
+class Stack{
+public $top;
+private static $size =0;
+public function push($item){
+$new_node = new Node($item);
+if($this->top == null){
+$this->top = $new_node;
+}else{
+$new_node->next = $this->top;
+$this->top = $new_node;
+}
+self::$size++;
+}
+
+
+public function pop(){
+if($this->top == null){
+echo "stack underflow \n";
+}
+$val = $this->top->data;
+$this->top = $this->top->next;
+self::$size--;
+return $val;
+}
+
+public function display(){
+$current = $this->top;
+if($current == null){
+echo "stack is empty\n";
+}
+while($current!=null){
+echo $current->data ." ";
+$current = $current->next;
+}
+}
+
+public function size(){
+return self::$size;
+}
+public function isEmpty(){
+return $this->top == null;
+}
+
+public function peek(){
+if(!$this->isEmpty()){
+return $this->top->data;
+}
+else{
+echo "stack is empty\n";
+}
+}
+}
+c
+
+public function getData(){
+$str = "";
+$current = $this->front;
+while($current!=null){
+$str = $str.$current->data." ";
+$current = $current->next;
+}
+return $str;
+}
+}
+// $queue = new Queue;
+// $queue->enqueue("karthik");
+// $queue->enqueue(20);
+// $queue->enqueue(30);
+// $queue->enqueue(40);
+
+// $queue->display();
+// echo "\n";
+// echo $queue->dequeue();
+// $queue->display();
+// echo $queue->size();
+// echo "data \n";
+// echo $queue->getData();
+?>
+// $array2=explode(" ",$string);
+// for($i=0;$i<sizeof($array1);$i++)
+// {
+//     for($j=0;$j<sizeof($array1);$j++)
+//     {
+//         $num1=$array1[$i];
+//         $num2=$array2[$j];
+//         if($num1==$num2)
+//         {
+//             unset($array1[$i]);
+//         }
+//     }
+// }
+// echo "the prime numbers are:";
+// for($i=0;$i<sizeof($array1);$i++)
+// {
+//     echo $array1[$i]." ";
+// }
+// echo "the prime anagrams are:";
+// for($j=0;$j<sizeof($array2);$j++)
+// {
+//     echo $array2[$j]." ";
+// }
+
+
+
+<?php 
+class Node{
+public $next;
+public $prev;
+public $data;
+function __construct($d){
+$this->data = $d;
+$this->next = null;
+}
+}
+class Deque{
+public $head;
+public $tail;
+public function addFront($item){
+$new_node = new Node($item);
+if($this->isEmpty()){
+$this->tail = $new_node;
+}else{
+$this->head->prev = $new_node;
+}
+$new_node->next = $this->head;
+$this->head = $new_node;
+}
+public function removeRear(){
+$temp = $this->tail;
+if($this->head ==$this->tail){
+$this->head = null;
+}
+else{
+$this->tail->prev->next = null;
+}
+$val = $this->tail->data;
+$this->tail = $this->tail->prev;
+$temp->prev = null;
+
+return $val;
+} 
+public function addRear($item){
+$new_node = new Node($item);
+if(!$this->isEmpty()){
+$this->tail->next = $new_node;
+}else{
+$this->head = $new_node;
+}
+$new_node->prev = $this->tail;
+$this->tail = $new_node;
+} 
+public function removeFront(){
+$temp = $this->head;
+if($this->head == $this->tail){
+$this->tail = null;
+}
+if($this->isEmpty()){
+echo "underflow\n";
+}
+else{
+$this->head->next->prev = null;
+}
+$this->head = $this->head->next;
+$this->temp->next = null;
+}
+public function isEmpty(){
+if($this->head == null){
+return true;
+}
+return false;
+}
+
+public function displayForward(){
+$temp = $this->head;
+if($temp == null){
+echo "underflow\n";
+}
+while($temp!=null){
+echo $temp->data." ";
+$temp = $temp->next;
+}
+}
+public function displayReverse(){
+$temp = $this->tail;
+while($temp!=null){
+echo $temp->data." ";
+$temp = $temp->prev;
+}
+}
+}
+// $deque = new Deque;
+// $deque->addFront("a");
+// $deque->addFront("b");
+// $deque->addFront("c");
+// $deque->displayForward();
+// echo "\n";
+// $deque->removeRear();
+// $deque->displayForward();
+// echo "\n";
+// $deque->addRear("f");
+// $deque->displayForward();
+// echo "\n";
+// $deque->addFront("g");
+// $deque->displayForward();
+
+?>

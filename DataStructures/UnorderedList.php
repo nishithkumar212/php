@@ -1,96 +1,36 @@
 <?php
-class Node
+/**
+* Purpose: Program for  Read the Text from a file, split it into words and arrange it as Linked List. Take a user input to search a Word in the List. If the Word is not found then add it to the list, and if it found then remove the word from the List. In the end save the list into a file
+* @author Nishithkumar
+* @version 1.0
+* @since 23-01-2019
+*
+******************************************************************************/  
+include('LinkedList.php');
+include('Dutility.php');
+$file=fopen("words.txt","r");
+$s=fread($file,filesize("words.txt"));
+$array1=explode(" ",$s);
+$obj=new LinkedList;
+for($i=0;$i<sizeof($array1);$i++)
 {
-     public    $data;
-     public   $next;
-    public function __construct($d)
-    {
-        $this->data=$d;
-        $this->next=null;
-    }
+    $obj->add($array1[$i]);
 }
-class LinkedList
+$obj->display();
+echo "\n";
+echo " enter the search word :";
+$string =Dutility::getString();
+$bool=$obj->search($string);
+if($bool==true)
 {
-    public  $head;
-    public  function add($number)
-    {
-        if ($this->head == null)
-        {
-            $this->head=new Node($number);
-        }
-        else
-        {
-            $n=$this->head;
-            while($n->next!=null)
-            {
-                $n=$n->next;
-            }
-            $n->next = new Node($number);
-        }
-
-    }
-    public  function addfirst($number)
-    { 
-        $obj=new Node($number);
-        $obj->next=$this->head;
-        $this->head=$obj;
-    }
-    public function search($number)
-    {
-        $n=$this->head;
-        while($n!=null)
-        {
-            if($n->data==$number)
-            {
-                return true;
-            }
-            $n=$n.next;
-        }
-        return false;
-
-    }
-    public  function deletefirst()
-    {
-            $n=$this->head;
-            $head=$n->next;
-    }
-    public function deletecertain($position)
-    {
-        
-    }
-    public  function  insert($position,$number)
-    {
-        $n=$this->head;
-        $count=1;
-        while($count<$position-1)
-        {
-            $n=$n->next;
-            $count++;
-        }
-        $obj=new Node($number);
-        $current=$n->next;
-        $obj->next=$current;
-        $n->next=$obj;
-    }
-    public  function display()
-    {
-        $n=$this->head;
-        while($n!=null)
-        {
-            echo $n->data." ";
-            $n=$n->next;
-        }
-        
-    }
+    $obj->delete($string);
 }
-$object= new LinkedList;
-$object->add(5);
-$object->add(10);
-$object->add(15);
-$object->add(20);
-$object->add(30);
-$object->addfirst(25);
-$object->deletefirst();
-$object->insert(3,35);
-$object->display();
+else
+{
+    $obj->add($string);
+}
+$obj->display();
+$s=$obj->getdata();
+$files=fopen("words.txt","w");
+fwrite($files,$s);
 ?>

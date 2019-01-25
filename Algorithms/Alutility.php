@@ -3,7 +3,7 @@ class Alutility {
 /**function to get the integer values */
 public static function getInt()
 {
-    fscanf(STDIN,"%s",$integer);
+    fscanf(STDIN,"%s",$integer); // validating the string is integer or not
       while (!is_numeric($integer) || $integer >(int) $integer )
     {
         echo "invalid input";
@@ -57,7 +57,7 @@ public static function anagram($String1,$String2)
         }
     }
     else{
-        echo "hiven are not anagrams:";
+        echo "given are not anagrams:";
     }
     
 }
@@ -124,15 +124,23 @@ public static function primeanagrams($prime)
     {
         for($indexj=$indexi+1;$indexj<sizeof($prime);$indexj++)
         {
-               $num=$prime[$indexj];
-               $array1=str_split("$num");
+ 
+                $num=$prime[$indexj];
+                $num1=$prime[$indexi];
+               $array2=str_split($num1);
+               sort($array2);
+               $rev1=implode("",$array2);
+               $array1=str_split($num);
                 sort($array1);
                 $rev=implode("",$array1);
-                if($prime[$indexi]==$rev)
+                if(sizeof($array1)==sizeof($array2))
+                {
+                if($rev1==$rev)
                 {
                     echo $prime[$indexi]." ";
                     echo $prime[$indexj]." ";
                 }
+            }
         }
        
     }
@@ -170,16 +178,16 @@ public static function binarySearchstring($Array1,$key)
     while($start<=$end)
     {
         $mid=floor($start+($end-$start)/2);
-        if(strcmp($Array1[$mid],$key) ==0)
+        if(strcmp($Array1[$mid],$key) ==0) // comaring the key element with mid index 
         {
             echo "the element found at index ".$mid;
             break;
         }
-        else if(strcmp($Array1[$mid],$key) < 0)
+        else if(strcmp($Array1[$mid],$key) < 0) //comparing and key and if it is greater than the key incrementing the mid value
         {
             $start=$mid+1;
         }
-        else if(strcmp($Array1[$mid],$key) > 0)
+        else if(strcmp($Array1[$mid],$key) > 0)//comparing and key and if it is lesser than the key decrementing the mid value
         {
             $end=$mid-1;
         }
@@ -196,6 +204,7 @@ public static function bubblesort($Array1)
     {
         for($indexj=0;$indexj<sizeof($Array1)-1;$indexj++)
         {
+//comaring the index value            
             if($Array1[$indexj]>$Array1[$indexj+1])
             {
                 $temp=$Array1[$indexj];
@@ -204,6 +213,7 @@ public static function bubblesort($Array1)
             }
         }
     }
+// after sorting the elements:The elements are printing through the loop
     echo "after sorting:";
     for($indexi=0;$indexi<sizeof($Array1);$indexi++)
     {
@@ -283,12 +293,13 @@ public static function length($array1)
 /**function to calculate the day name  */
 public static function calculateDayofWeek($day,$month,$year)
 {
+//formula that is used for calculating the day of a week
         $y0 = floor($year -(14 - $month) / 12)+1;
         $x = floor($y0 + $y0/4 - $y0/100 + $y0/400);
         $m0 = ($month + 12 *floor ((14 - $month) / 12))-2;
         $d0 = floor($day + $x +floor(31*$m0 / 12))%7;
          $d0;
-        
+// depending on the value of d0 by using switch the day falls on certain day
         switch($d0)
         {
             case 0:echo "the day falls on sunday";
@@ -310,13 +321,13 @@ public static function calculateDayofWeek($day,$month,$year)
 /**function to calculate from celcius degree to  fahrenheit*/
 public static function  fahreinconversion($celcius)
 {
-        $fahrenheit= ($celcius * 9/5) + 32;
+        $fahrenheit= ($celcius * 9/5) + 32; // conversion from celsius to fahrenheit
         echo " after conversion in to fahrenheit ".$fahrenheit;
 }
 /**function to calculate from fahrenheit degree to  celcius*/
 public static function celciusconversion($fahrenheit)
 {
-        $celcius=($fahrenheit-32)* 5/9;
+        $celcius=($fahrenheit-32)* 5/9;//conversion from fahrenheit to celcius
         echo "after conversion in to celcius:". $celcius;
 }
 //function to calculate the rate of interest
@@ -334,7 +345,8 @@ public static function monthlypayment($P,$Y,$R)
 public static function vendingCalculate($array1,$money)
 {
     $i=0;
- while($money>0)
+//checking the condition while money is greater than 0 or not
+    while($money>0)
  {
      while($money>=$array1[$i])
      {
@@ -343,9 +355,10 @@ public static function vendingCalculate($array1,$money)
         echo "\n";
         $money=floor($money%$array1[$i]);
         }
-        $i++;
+        $i++;// incrementing the i value
  }
 }
+//function used for conversion from decimal to binary
 public static function  binary($number)
 {
     $starttime=
@@ -367,6 +380,7 @@ public static function  binary($number)
     return $reverse;
     //Alutility::decimal($reverse);
 }
+//function used binary to decimal
 public static function decimal($array1)
 {
     $decimal=0;
@@ -379,6 +393,7 @@ public static function decimal($array1)
   }
   echo "the decimal value is:".$decimal;
 }
+//function used for binary search 
 public static function binarySearchfile($array1,$key)
 {
 $start=$start_time = round(microtime(true) * 1000);
@@ -404,6 +419,7 @@ while($start<=$end)
     return $elapsed;
 }
 }
+// function binary search of a string that takes string as argument and find the index
 public static function binarySearchstringfile($Array1,$key)
 {
     $start=$start_time = round(microtime(true) * 1000);
@@ -438,10 +454,10 @@ else
     return $elapsed;
 }
 }
+// function used for sorting by using bubblesort
 public static function bubblesortfile($Array1)
 {
-    $startpoint = floor(microtime(true) * 1000)."\n";
-    echo $startpoint;
+    $startpoint =(microtime(true) * 1000)."\n";
     for($indexi=0;$indexi<sizeof($Array1)-1;$indexi++)
     {
         for($indexj=0;$indexj<sizeof($Array1)-1;$indexj++)
@@ -459,12 +475,13 @@ public static function bubblesortfile($Array1)
     {
         echo $Array1[$indexi]. " ";
     }
-    $end_point = floor(microtime(true) * 1000)."    ";
+    $end_point = (microtime(true) * 1000);
     echo "\n";
     echo $end_point;
-    $result=floor($end_point-$startpoint);
-     echo "the time is:".$result."\n";
+    // $result=($end_point-$startpoint);
+    //  echo "the time is:".$result."\n";
 }
+// function used for sorting of a string by using bubblesort
 public static function bubblesortStringfile($Array1)
 { 
     $start =floor(microtime(true) * 1000);
@@ -489,6 +506,7 @@ public static function bubblesortStringfile($Array1)
     $res=floor($end-$start);
      echo  "the time is:".$res."\n";
 }
+// function used for sorting of an integers by using insertion sort
 public static function insertionsortfile($Array1)
 { 
     $s = floor(microtime(true) * 1000);
@@ -540,6 +558,7 @@ public static function insertionsortstringfile($array1)
      $e=floor($second-$first);
      echo "the time is:".$e."\n";
 }
+//function to calculate the square root of a number
 public static function squareroot($number)
 {
 	$t=$number;
@@ -550,6 +569,7 @@ public static function squareroot($number)
         }
          echo $t;
 }
+// function to calculate the user given number by using binarysearch
 public static function findnumber($array1,$key)
 {
     $start=0;

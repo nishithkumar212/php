@@ -114,12 +114,23 @@ class utility
     {
         $harmonic = 0.0;
         for ($index = 1; $index <= $number; $index++) {
+
             $harmonic = $harmonic + (1 / $index);
 
-            echo "1"."/".$index ."+";
+            echo "1"."/".$index ;
+        
+        if($index==$number)
+        {
+            
         }
-        echo "\n";
-        echo "the value is:".$harmonic;
+        else
+        {
+                echo "+";
+        }
+        
+    }
+    echo "=";
+        echo $harmonic;
     }
     // function to flip the coin and calculate percentage of heads and tails
     public static function flip($number)

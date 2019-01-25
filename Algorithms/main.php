@@ -1,5 +1,12 @@
 
 <?php
+/**
+ * Purpose: program that is used to call the static functions declared in utility class
+ * @author :Nishithkumar
+ * @version :1.0
+ * @since :15-01-2019
+ *
+ ******************************************************************************/
 include('Alutility.php');
 echo "1.buublesortint 2.bubblesortstring 3.insertionsort 4.insertionsortstring";
 $array1=array('12','24','2','34','26'); 

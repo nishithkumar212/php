@@ -1,4 +1,11 @@
 <?php
+/**
+ * Purpose: program used for swapping of nibbles
+ * @author :Nishithkumar
+ * @version :1.0
+ * @since :15-01-2019
+ *
+ ******************************************************************************/
 include('Alutility.php');
 echo " enter the number";
 $number=Alutility::getInt();

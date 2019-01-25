@@ -34,7 +34,7 @@ public static function computer()
         $count++;
         }
     else{
-       Tictae::computer();
+      Tictae::computer();
         }
 }
 public static function cwin()
@@ -56,7 +56,7 @@ public static function user()
         $array1[$urow][$ucol]="0";
     }
     else{
-       Tictae::user();
+       user();
     }   
     $count++;
 }

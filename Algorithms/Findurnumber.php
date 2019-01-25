@@ -1,6 +1,13 @@
  <?php
+ /**
+ * Purpose: program to find the user given number by using binarysearch 
+ * @author :Nishithkumar
+ * @version :1.0
+ * @since :15-01-2019
+ *
+ ******************************************************************************/
  include('Alutility.php');
-echo " enter a number";
+echo " enter a number:";
 $num=Alutility::getInt();
 $result=pow(2,$num);
 $array1=array();
