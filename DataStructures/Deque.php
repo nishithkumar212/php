@@ -1,4 +1,11 @@
 <?php
+/**
+* Purpose: program for Deque.
+* @author Nishithkumar
+* @version 1.0
+* @since 23-01-2019
+*
+******************************************************************************/  
 class Node
 {
     public $next;
@@ -14,7 +21,7 @@ class Deque
 {
     public $head;
     public $tail;
-    public function addFront($number)
+    public function addFront($number) // adding to the front of the deque
     {
         $obj = new Node($number);
         if ($this->isEmpty()) 
@@ -27,7 +34,7 @@ class Deque
         $new_node->next = $this->head;
         $this->head = $new_node;
     }
-    public function removeRear()
+    public function removeRear() // removing the next rear of an element
     {
         $temp = $this->tail;
         if ($this->head == $this->tail)
@@ -42,7 +49,7 @@ class Deque
         $temp->previous = null;
         return $val;
     }
-    public function addRear($item)
+    public function addRear($item)// adding the next rear element in to the queue
     {
         $new_node = new Node($item);
         if (!$this->isEmpty()) 
@@ -55,7 +62,7 @@ class Deque
         $new_node->previous = $this->tail;
         $this->tail = $new_node;
     }
-    public function removeFront()
+    public function removeFront() // removing the front eleement in the ueue
     {
         $temp = $this->head;
         if ($this->head == $this->tail)
@@ -73,7 +80,7 @@ class Deque
         $this->head = $this->head->next;
         $this->temp->next = null;
     }
-    public function isEmpty()
+    public function isEmpty() // checking wheteher it is empty or not
     {
         if ($this->head == null)
          {
@@ -82,7 +89,7 @@ class Deque
         return false;
     }
 
-    public function displayForward()
+    public function displayForward() // dispalying the linkedlist in forward direction
     {
         $temp = $this->head;
         if ($temp == null) 
@@ -95,12 +102,12 @@ class Deque
             $temp = $temp->next;
          }
     }
-    public function displayReverse()
+    public function displayReverse() //displaying the linkedlist in reverse direction
     {
         $temp = $this->tail;
          while ($temp != null)
           {
-            echo $temp->data . " ";
+            echo $temp->data . " "; // printing the element
             $temp = $temp->previous;
         }
     }

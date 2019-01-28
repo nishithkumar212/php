@@ -1,9 +1,17 @@
 <?php
+/**
+* Purpose: program for cashcounter of a machine
+* @author Nishithkumar
+* @version 1.0
+* @since 23-01-2019
+*
+******************************************************************************/  
 $total=10000;
 include('Dutility.php');
 include('Queue.php');
 $obj=new Queue;
 $object=new Queue;
+$total=10000;
 echo " enter the number of people to add to the queue:";
 $num=Dutility::getInt();
 for($i=0;$i<$num;$i++)
@@ -12,9 +20,10 @@ for($i=0;$i<$num;$i++)
      $str=Dutility::getString();
      $obj->enqueue($str);
 }
+    echo $num ."are added to the queue";
 while($num>0)
 {
-    $name=$obj->dequeue();
+    $name=$obj->dequeue2();
     echo $name;
     echo "1.deposit 2.withdrawl ";
     echo "\n";
@@ -24,35 +33,29 @@ while($num>0)
     {
         case 1:echo "enter the amount:";
                 $amount=Dutility::getInt();
-                If($amount>=500 &&$amount<=10000)
-                {
-                    $object->enqueue($amount);
-                    echo " the remaining persons in the queue are:\n";
-                    $obj->display();
-                    echo "\n";
-                   
-                }
-                else
-                {
-                    echo " please try in the range from 500 -10000 \n";
-                }
+                $total=$total-$amount;
+                $name=$obj->dequeue();
+                echo $name."has dequed";
+                echo " the remaining persons in the queue are:\n";
+                $obj->display();
+                echo "\n";
                 break;
-        case 2: echo " enter the witdrawl amount:";
-                $amount1=Dutility::getInt();
-                if($amount1>500 && $amount1<10000)
-                {
-                    $withdrwalamount=$object->dequeue($amount1);
-                    echo " the remaining persons in the queue are:\n";
-                    $obj->display();
-                    break;
-                }
-                else
-                {
-                    echo "try in the range of 500 -10000 \n";
-                }
-               
+                
+        case 2:  echo " enter the witdrawl amount:";
+                 $amount1=Dutility::getInt();
+                 $total=$total-$amount1;
+                   //$withdrwalamount=$object->dequeue($amount1);
+                 $name=$obj->dequeue();
+                 echo $name."has dequed";  
+                 echo " the remaining persons in the queue are:\n";
+                 $obj->display();
+                break;
+                // echo "1.deposit 2.withdrawl ";
+                // echo "\n";
+                // echo "enter your choice:";
+                // $b=Dutility::getInt();
     }
-
+    $num--;
 
 }
 

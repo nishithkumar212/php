@@ -6,10 +6,9 @@
 * @since 23-01-2019
 *
 ******************************************************************************/  
-
 include('Dutility.php');
 include('Stack.php');
-$str="((5+6))";
+$str="(((5+6))";
 $array1=str_split($str);
 $obj=new Stack;
 $count=0;
@@ -17,22 +16,20 @@ for($i=0;$i<sizeof($array1);$i++)
 {
     if($array1[$i]=="(")
     {
-        $obj->push($array1[$i]);
-    
-
+        $obj->push($array1[$i]); // pushing the element in to the stack
     }
     else if($array1[$i]==")")
     {
-        $obj->pop();
+        $obj->pop();// poping the elemnt in to the stack
     
     }
 }
-if($obj->isEmpty())
+if($obj->isEmpty()) // checking the condition 
 {
-    echo "true";
+    echo "true \n";
 }
 else
 {
-echo "false"; 
+echo "false \n"; 
 }
 ?>

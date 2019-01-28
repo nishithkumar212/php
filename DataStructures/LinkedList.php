@@ -6,12 +6,11 @@
 * @since 23-01-2019
 *
 ******************************************************************************/  
-
 class Node
 {
      public    $data;
      public   $next;
-    public function __construct($d)
+    public function __construct($d) //constructor for initializinf the variables
     {
         $this->data=$d;
         $this->next=null;
@@ -21,7 +20,7 @@ class LinkedList
 {
     public  $head;
     public $size;
-    public  function add($number)
+    public  function add($number) //  function for adding the element in the queue
     {
         if ($this->head == null)
         {
@@ -38,33 +37,35 @@ class LinkedList
         }
         $this->size++;
     }
-    public  function addfirst($number)
+    public  function addfirst($number) // function for adding to the first of a queue
     { 
         $obj=new Node($number);
         $obj->next=$this->head;
         $this->head=$obj;
         $this->size++;
     }
-    public function search($number)
+ //function for searching the given element in the linkedlist   
+    public function search($key1)
     {
         $n=$this->head;
         while($n!=null)
         {
-            if($n->data==$number)
+            if(($n->data)==$key1)
             {
                 return true;
             }
             $n=$n->next;
         }
         return false;
-
     }
+  //function for deleting the first element in the linkedlist  
     public  function deletefirst()
     {
             $n=$this->head;
             $head=$n->next;
             $this->size--;
     }
+ // function for deleting the specific element in the queue.   
     public function delete($key)
     {
         $temp=$this->head;
@@ -80,6 +81,7 @@ class LinkedList
             $previous->next=$temp->next;
             $this->size--;
     }
+ // function for inserting the element at certain position in the queue.   
     public  function  insert($position,$number)
     {
         $n=$this->head;
@@ -95,6 +97,7 @@ class LinkedList
         $n->next=$obj;
         $this->size++;
     }
+   //function for dispalying all the elements in the linkedlist. 
     public  function display()
     {
         $n=$this->head;
@@ -104,13 +107,14 @@ class LinkedList
             $n=$n->next;
         }
     }
+   // function to retrieve the data in the linkedlist 
     public function getdata()
     {
         $st="";
         $n=$this->head;
         while($n!=null)
         {
-            $st=$st.$n->data."  ";
+            $st=$st.$n->data." ";
             $n=$n->next;
         }
      return $st;
@@ -128,6 +132,7 @@ class LinkedList
         }
         return $llr;
     }
+  // function to calculate the size of a queue.  
     public function size()
     {
          return $this->size;

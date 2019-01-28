@@ -1,6 +1,7 @@
 <?php
 class Dutility
 {
+// function to retrieve integer type of data.
     public static function getInt()
     {
         fscanf(STDIN,"%s",$integer); // validating the string is integer or not
@@ -33,6 +34,7 @@ class Dutility
         }
         return $float;
     }
+//function to calculte the primes of a given number
     public static  function primes($number)
     {
         $i=0;
@@ -59,6 +61,7 @@ class Dutility
          }
          return $primes1; 
 }
+//function to check the primeanagrams.
 public static function primeanagrams($prime)
 {
     $str="";
@@ -69,15 +72,15 @@ public static function primeanagrams($prime)
         for($indexj=($indexi+1);$indexj<sizeof($prime);$indexj++)
         {
  
-                $num=$prime[$indexj];
-                $num1=$prime[$indexi];
-               $array2=str_split($num1);
+                $num=$prime[$indexj]; // storing in a number 
+                $num1=$prime[$indexi]; // stroring in a number 
+               $array2=str_split($num1); // splitting in to an array
                sort($array2);
-               $rev1=implode("",$array2);
+               $rev1=implode("",$array2); // converting in to string 
                $array1=str_split($num);
-                sort($array1);
+                sort($array1); // sorting in to an array 
                 $rev=implode("",$array1);
-                if(sizeof($array1)==sizeof($array2))
+                if(sizeof($array1)==sizeof($array2)) // comparing the size of a array 
                 {
                 if($rev1==$rev)
                 {
@@ -95,6 +98,7 @@ public static function primeanagrams($prime)
     }
     return  $str;
 }
+// function to calculate the given year is leap year or not
 public static function leapyear($year1)
 {
     if (($year1 % 400 == 0) || ($year1 % 4 == 0)) // condition to know whether it is a leap year or not
@@ -107,6 +111,7 @@ public static function leapyear($year1)
     }
     
 }
+//function to calculate the day of a week
     public static function calculateDayofWeek($day,$month,$year)
 {
 //formula that is used for calculating the day of a week

@@ -8,14 +8,14 @@
 ******************************************************************************/  
 
  include('Alutility.php');
-$myfile=fopen("String.txt","r") ;
-$s=fread($myfile,filesize("String.txt"));
+$myfile=fopen("String.txt","r") ; //opening  the file
+$s=fread($myfile,filesize("String.txt")); //reading the file
 echo $s;
 echo "\n";
-$array=explode(" ","$s");
+$array=explode(" ","$s"); //converting string in to array
 echo "\n";
 echo "enter the word to search:";
 $sp=Alutility::getString();
- Alutility::binarySearchstring($array,$sp);
+ Alutility::binarySearchstring($array,$sp); // function for binary search 
 echo "\n";
 ?>

@@ -6,12 +6,11 @@
 * @since 23-01-2019
 *
 ******************************************************************************/  
-
 include('Dutility.php');
 $number=1000;
 $j=0;
 $range=100;
-$primesarr=Dutility::primes($number);
+$primesarr=Dutility::primes($number);// function to retrieve the  prime numbes
 $primenumbers= array();
 $k=0;
  for($i=0;$i<10;$i++)
@@ -20,11 +19,11 @@ $k=0;
      global $range;
      for($j=0;$j<100;$j++)
      {
-        if($k==sizeof($primesarr)||$primesarr[$k]>$range)
+        if($k==sizeof($primesarr)||$primesarr[$k]>$range) //checking the condition 
         {
             break;
         }
-         $primenumbers[$i][$j]=$primesarr[$k++];
+         $primenumbers[$i][$j]=$primesarr[$k++]; // adding each index in to the new array
          
     }
      $range+=100;
@@ -34,7 +33,7 @@ $k=0;
  {
      for($j=0;$j<sizeof($primenumbers[$i]);$j++)
      {
-         echo $primenumbers[$i][$j]." ";
+         echo $primenumbers[$i][$j]." "; // printing each and every index of an element in an array
      }
      echo "\n";
     }

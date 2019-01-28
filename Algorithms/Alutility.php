@@ -9,7 +9,7 @@ public static function getInt()
         echo "invalid input";
         fscanf(STDIN,"%s",$integer);
     }
-    return $integer;
+    return $integer;// returning the value.
 }
 /**function to get the string values */
 public static function getString()
@@ -33,6 +33,16 @@ public static function getFloat()
     }
     return $float;
 }
+public static function boolean()
+{
+    fscanf(STDIN,"%s\n",$val);
+    while($val!=='true'&& $val!=='false')
+    {
+        echo "invalid input \n";
+        fscanf(STDIN,"%S\n",$val);
+    }
+    return $val;
+}
 /**function to check whether the given strings are anagrams or not to each other */
 public static function anagram($String1,$String2)
 {
@@ -47,7 +57,7 @@ public static function anagram($String1,$String2)
         sort($array2);
         $string3=implode("",$array1); //converting in to string
         $string4=implode("",$array2);
-        if($string3==$string4) // converting both are equal or not
+        if($string3==$string4) // checking  both are equal or not
         {
             echo "given strings are anagram to each other"."\n";
         }
@@ -73,7 +83,7 @@ public static  function primes($number)
         {
             if($indexi%$indexj == 0) // checking the condition of primenumber
             {
-                $count=$count+1;
+                $count=$count+1;// incrementing the count value
             }
         }
         if( $count==2) //equating with 2
@@ -116,6 +126,7 @@ public static function palindrome($primearray)
     //      echo $primes1[$index]." ,";
     //  }
 }
+//function to check the primeanagrams.
 public static function primeanagrams($prime)
 {
     echo " the prime anagrams are:";
@@ -595,6 +606,51 @@ public static function findnumber($array1,$key)
     {
         echo "the searched element is not present";
     }
+}
+
+public static function mergeSort($input)
+{
+$len = count($input);
+/**if input size is 1 then return */
+if (count($input) == 1) {
+return $input;
+}
+
+/**calculate mid */
+$mid = floor(count($input) / 2);
+/**divide array into two halves until is size is 1 */
+$left = array_slice($input, 0, $mid);
+$right = array_slice($input, $mid, $len - 1);
+$left = Alutility::mergeSort($left);
+$right = Alutility::mergeSort($right);
+/**merge sort the subarrays */
+return Alutility::merge($left, $right);
+}
+/**function to find merge operation */
+public static function merge($left, $right)
+{
+$res = array();
+while (count($left) > 0 && count($right) > 0) {
+if ($left[0] > $right[0]) {
+$res[] = $right[0];
+//The array_slice() function returns selected parts of an array.
+//returns the values after index 1
+$right = array_slice($right, 1);
+} else {
+$res[] = $left[0];
+//returns the values after index 1
+$left = array_slice($left, 1);
+}
+}
+while (count($left) > 0) {
+$res[] = $left[0];
+$left = array_slice($left, 1);
+}
+while (count($right) > 0) {
+$res[] = $right[0];
+$right = array_slice($right, 1);
+}
+return $res;
 }
 }
 ?>

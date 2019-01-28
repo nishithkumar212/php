@@ -9,9 +9,9 @@
  include('Alutility.php');
  echo "enter to number to find primes:";
  $number=Alutility::getInt();
- $array2=Alutility::primes($number);
+ $array2=Alutility::primes($number); //function to find the prime numbers 
  for($i=0;$i<sizeof($array2);$i++)
  {
-     echo $array2[$i]." ";
+     echo $array2[$i]." "; //printing the primenumbers.
  }
 ?>

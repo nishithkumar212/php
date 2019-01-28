@@ -1,10 +1,16 @@
-
 <?php
+/**
+* Purpose: program for Queue.
+* @author Nishithkumar
+* @version 1.0
+* @since 23-01-2019
+*
+******************************************************************************/  
 class Node
 {
     public $data;
     public $next;
-    public function __construct($number)
+    public function __construct($number) // constructor initializing the variables 
     {
         $this->data = $number;
         $this->next = null;
@@ -15,7 +21,7 @@ class Queue
     public $front;
     public $rear;
     public $length;
-    public function enqueue($number)
+    public function enqueue($number) // adding the element in to the stack 
     {
         $obj= new Node($number);
         if ($this->isEmpty()) 
@@ -23,19 +29,19 @@ class Queue
             $this->front = $obj;
         } else
          {
-            $this->rear->next = $obj;
+            $this->rear->next = $obj; 
         }
         $this->rear = $obj;
         $this->length++;
     }
-    public function isEmpty()
+    public function isEmpty() // checking the condition 
     {
         if ($this->front == null) {
             return true;
         }
         return false;
     }
-    public function dequeue()
+    public function dequeue() // dequing the element of a queue
     {
         if (!$this->isEmpty()) {
             $val = $this->front->data;
@@ -80,11 +86,11 @@ class Queue
        // $this->length--;
         return $val;
     }
-    public function size()
-    {
+    public function size() // function to check the size of an queue
+    { 
         return $this->length;
     }
-    public function display()
+    public function display() // function to display the elements of a queue
     {
         $temp = $this->front;
         while ($temp != null) {
@@ -94,7 +100,7 @@ class Queue
         
     }
     
-    public function peek()
+    public function peek() // function to retieve element of a queue
     {
         return $this->front->data;
     }

@@ -15,7 +15,7 @@ $int=fread($myfile,filesize("int.txt"));
 echo $int;
 echo "\n";
 $array1=array();
-$array1=explode(",","$int");
-Alutility::bubblesort($array1);
+$array1=explode(",","$int"); // converting string in to array
+Alutility::bubblesort($array1); // function for arranging in to sorting order by using bubble sort 
 
 ?>
