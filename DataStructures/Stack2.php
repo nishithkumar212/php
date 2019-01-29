@@ -3,7 +3,8 @@ class stackNode
 {
     public $next;
     public $data;
-    public function __construct($number) // constructor initializing the variables 
+    /** constructor initializing the variables  */
+    public function __construct($number) 
     {
         $this->data = $number;
         $this->next = null;
@@ -13,7 +14,8 @@ class Stack
 {
     public $top;
     public $length = 0;
-    public function push($number) //pushing the elements in to the stack 
+    /**pushing the elements in to the stack  */
+    public function push($number) 
     {
         $obj = new stackNode($number);
         if ($this->top == null) {
@@ -24,8 +26,9 @@ class Stack
         }
         $this->length++;
     }
-
-    public function pop() // poping the elemnets in to the stack 
+    
+    /** poping the elemnets in to the stack  */
+    public function pop() 
     {
         if ($this->top == null) {
             echo "stack underflow \n";
@@ -39,7 +42,8 @@ class Stack
         return $result;
     }
 
-    public function display() // displaying the elements in to the stack 
+    /**displaying the elements in to the stack  */
+    public function display() 
     {
     
         $n = $this->top;
@@ -55,7 +59,8 @@ class Stack
        // return $array2;
     }
 
-    public function size() // returning the size of  a stack 
+    /**returning the size of  a stack  */
+    public function size() 
     {
         $this->length;
     }
@@ -65,7 +70,8 @@ class Stack
         
     }
 
-    public function peek() // retrieving the element of a stack 
+    /**retrieving the element of a stack  */
+    public function peek()  
     {
         if (!$this->isEmpty()) {
             return $this->top->data;

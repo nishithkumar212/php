@@ -1,5 +1,6 @@
 <?php
 /**
+*File:VendingMachine.php
 * Purpose:Write a Program to calculate the minimum number of Notes as well as the Notes to be returned by the Vending Machine
 * @author :Nishithkumar
 * @version :1.0

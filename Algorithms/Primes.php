@@ -1,5 +1,6 @@
 <?php
 /**
+* File:Primes.php
 * Purpose:  program to calculates the primes up to 1000
 * @author :Nishithkumar
 * @version :1.0

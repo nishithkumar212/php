@@ -11,7 +11,8 @@ $day=1;
 $dayof=Dutility::calculateDayofWeek($day,$month,$year);
 $months=array("jan","feb","mar","april","may","june","july","aug","sept","oct","nov","dec");
 $days=array("31","28","31","30","31","30","31","31","30","31","30","31");
-$bool=Dutility::leapyear($year);// function to check wheteher it is leap year or not
+    /**function to check wheteher it is leap year or not */
+$bool=Dutility::leapyear($year);
 $arr1=array();
 if($bool==true)
 {
@@ -42,9 +43,13 @@ for($i=0;$i<$dayof;$i++)
 }
 for($j=1;$j<=$days[$month-1];$j++)
 {
-    $value3=$obj->peek(); // taking the value from a stack
-    echo  $obj->pop()."\t"; // deleting the index value from stack
-    if(($dayof+$value3)%7==0) //condition to get in the next line
+    /** taking the value from a stack */
+    $value3=$obj->peek(); 
+
+    /** deleting the index value from stack*/
+    echo  $obj->pop()."\t"; 
+    /**condition to get in the next line */
+    if(($dayof+$value3)%7==0) 
     {
         echo "\n";
     }

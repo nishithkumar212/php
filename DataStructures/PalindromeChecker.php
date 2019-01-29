@@ -11,17 +11,21 @@ include('Deque.php');
 $obj=new Deque;
 echo "enter the string :";
 $name=Dutility::getString();
-$array1=str_split($name); // splitting the string in to an array
+    /**splitting the string in to an array */
+$array1=str_split($name); 
 $array2=array();
 for($i=0;$i<sizeof($array1);$i++)
 {
-    $obj->AddRear($array1[$i]); // adding each element in to an array
+    /**adding each element in to an array */
+    $obj->AddRear($array1[$i]); 
 }
 for($j=0;$j<sizeof($array1);$j++)
 {
-    $array2[$j]=$obj->removeRear(); // removing the element 
+    /**removing the element  */
+    $array2[$j]=$obj->removeRear(); 
 }
-if($array1==$array2) // checking the condition 
+    /**checking the condition  */
+if($array1==$array2) 
 {
     echo "given string is a palindrome:";
 }

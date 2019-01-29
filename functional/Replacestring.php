@@ -1,16 +1,20 @@
 <?php
 /**
+* File:ReplaceString.php
 * Purpose:program to replace the user input in a given string
 * @author Nishithkumar
 * @version 1.0
 * @since 15-01-2019
 *
-******************************************************************************/  
-include('utility.php');// including the utility file
+******************************************************************************/ 
+/**including the utility file */ 
+include('utility.php');
 $String= " Hello <<UserName>>, How are you? "; // string
 echo $String."\n";
 echo "enter the name to replace <<UserName>> :"."\n";
-$name=utility::getString();//calling the function to get integer input
+ /**calling the function to get integer input */
+$name=utility::getString();
 $String3=str_replace("<<UserName>>",$name,$String);
- echo $String3; // printing the output 
+/** printing the output  */
+ echo $String3; 
 ?>

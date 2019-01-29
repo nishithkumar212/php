@@ -12,24 +12,35 @@ $str="(((5+6))";
 $array1=str_split($str);
 $obj=new Stack;
 $count=0;
+/**
+ *  function used for adding the elements in the queue
+ */
 for($i=0;$i<sizeof($array1);$i++)
 {
     if($array1[$i]=="(")
     {
-        $obj->push($array1[$i]); // pushing the element in to the stack
+        $obj->push($array1[$i]);
     }
+
+/**
+*  function used for poping the elements in to the stack
+*/
     else if($array1[$i]==")")
     {
         $obj->pop();// poping the elemnt in to the stack
     
     }
 }
-if($obj->isEmpty()) // checking the condition 
-{
+
+/**
+*  function used for checking the condition.
+*/
+if($obj->isEmpty()) 
+    {
     echo "true \n";
-}
+    }
 else
-{
+    {
 echo "false \n"; 
-}
+    }
 ?>

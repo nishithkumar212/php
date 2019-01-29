@@ -1,5 +1,6 @@
 <?php
 /**
+ * File:Swappingofnibbles.php
  * Purpose: program used for swapping of nibbles
  * @author :Nishithkumar
  * @version :1.0
@@ -7,7 +8,7 @@
  *
  ******************************************************************************/
 include('Alutility.php');
-echo " enter the number";
+echo " enter the number:";
 $number=Alutility::getInt();
 $binary=Alutility::binary($number);
 for($j=0;$j<sizeof($binary);$j++)
@@ -17,7 +18,7 @@ for($j=0;$j<sizeof($binary);$j++)
     $string=implode("",$binary);
     $len=sizeof($binary);
     echo "\n";
-    echo $len."\n";
+    //echo $len."\n";
     $required=8-$len;
     // echo $required."\n";
     // echo $string."\n";
@@ -32,7 +33,7 @@ for($j=0;$j<sizeof($binary);$j++)
     $str2=substr($string,4,8);// taking the last 4 values of a string by using substring method
     $str3=$str1; // assignimg 
     $str3=$str2.$str3; //concatenating
-    echo $str3;
+    //echo $str3;
     echo"\n";
     $myarr=str_split($str3); //splitting in to array
         Alutility::decimal($myarr); // function to convert in to decimal

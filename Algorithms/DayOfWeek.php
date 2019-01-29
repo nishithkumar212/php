@@ -1,5 +1,6 @@
 <?php
 /**
+* File:DayOfWeek.php
 * Purpose:  program for  calculating the day of a week
 * @author :Nishithkumar
 * @version :1.0

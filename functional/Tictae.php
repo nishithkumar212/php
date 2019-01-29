@@ -1,4 +1,12 @@
 <?php
+/**
+* File:Tictae.php
+* Purpose: program to play the tictae .
+* @author Nishithkumar
+* @version 1.0
+* @since 15-01-2019
+*
+******************************************************************************/  
 include('utility.php');
 class Tictae
 { 

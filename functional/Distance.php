@@ -1,16 +1,23 @@
 <?php
 /**
+* File:Distance.php 
 * Purpose:Distance.java that takes two integer command-line arguments x and y and prints the Euclidean distance from the point (x, y) to the origin (0, 0)
 * @author Nishithkumar
 * @version 1.0
 * @since 15-01-2019
 *
 ******************************************************************************/  
-
-include('utility.php');// including the file
+/** including the file */
+include('utility.php');
 echo "enter the value of x:";
-$x=utility::getInt(); // calling the method to get integer value
+
+/** calling the method to get integer value */
+$x=utility::getInt(); 
 echo "enter the value of y:";
-$y=utility::getInt(); //calling the method to get integer value
-utility::distance($x,$y);// calling the function distance in utility file
+
+/**calling the method to get integer value */
+$y=utility::getInt();
+
+/**calling the function distance in utility file */
+utility::distance($x,$y);
 ?>

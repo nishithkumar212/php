@@ -97,7 +97,7 @@ class utility
 
         while ($number % 2 == 0) //firstly dividing the num by 2 until the loop terminates
         {
-            echo "2";
+            echo "2".",";
             $number = $number / 2; // again the number is dividing by 2 to get quotient value
         }
         for ($index = 3; $index <= $number; $index = $index + 2) //iterates the loop with only prime numbers
@@ -234,7 +234,6 @@ class utility
         for ($i = 0; $i < $number; $i++) {
             $array1[$i] = utility::getInt();
         }
-        print_r($array1);
         for ($i = 0; $i < sizeof($array1); $i++) {
             for ($j = $i+1; $j < sizeof($array1); $j++) {
                 for ($k = $j+1; $k < sizeof($array1); $k++) {

@@ -20,11 +20,9 @@ for($i=0;$i<$num;$i++)
      $str=Dutility::getString();
      $obj->enqueue($str);
 }
-    echo $num ."are added to the queue";
+    echo $num ."are added to the queue \n";
 while($num>0)
 {
-    $name=$obj->dequeue2();
-    echo $name;
     echo "1.deposit 2.withdrawl ";
     echo "\n";
     echo "enter your choice:";
@@ -33,9 +31,10 @@ while($num>0)
     {
         case 1:echo "enter the amount:";
                 $amount=Dutility::getInt();
-                $total=$total-$amount;
+                $total=$total+$amount;
+                echo "the balance in the counter is:".$total."\n";
                 $name=$obj->dequeue();
-                echo $name."has dequed";
+                echo $name."has dequed \n";
                 echo " the remaining persons in the queue are:\n";
                 $obj->display();
                 echo "\n";
@@ -44,11 +43,12 @@ while($num>0)
         case 2:  echo " enter the witdrawl amount:";
                  $amount1=Dutility::getInt();
                  $total=$total-$amount1;
+                 echo "the balance in the counter is:".$total."\n";
                    //$withdrwalamount=$object->dequeue($amount1);
                  $name=$obj->dequeue();
-                 echo $name."has dequed";  
-                 echo " the remaining persons in the queue are:\n";
-                 $obj->display();
+                 echo $name."has dequed\n";  
+                //  echo " the remaining persons in the queue are:\n";
+                //  $obj->display();
                 break;
                 // echo "1.deposit 2.withdrawl ";
                 // echo "\n";

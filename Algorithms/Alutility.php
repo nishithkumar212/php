@@ -3,19 +3,22 @@ class Alutility {
 /**function to get the integer values */
 public static function getInt()
 {
-    fscanf(STDIN,"%s",$integer); // validating the string is integer or not
+    /** validating the string is integer or not */
+    fscanf(STDIN,"%s",$integer); 
       while (!is_numeric($integer) || $integer >(int) $integer )
     {
         echo "invalid input";
         fscanf(STDIN,"%s",$integer);
     }
-    return $integer;// returning the value.
+    /** returning the value. */
+    return $integer;
 }
 /**function to get the string values */
 public static function getString()
 {
     fscanf(STDIN,"%s",$str);
-    while(is_numeric($str)) // validating the given string to check whether it is string or not
+    /** validating the given string to check whether it is string or not */
+    while(is_numeric($str)) 
     {
         echo "invalid input try again";
         fscanf(STDIN,"%s",$stt);
@@ -25,8 +28,9 @@ public static function getString()
 /**function to get the float values */
 public static function getFloat()
 {
-    fscanf(STDIN,"%f",$float); 
-    while(!is_float($float)) //validating the given input is float or not
+    fscanf(STDIN,"%f",$float);
+    /**validating the given input is float or not */ 
+    while(!is_float($float)) 
     {
         echo "invalid input try again";
         fscanf(STDIN,"%f",$float);
@@ -35,29 +39,36 @@ public static function getFloat()
 }
 public static function boolean()
 {
-    fscanf(STDIN,"%s\n",$val);
+    fscanf(STDIN,"%s",$val);
     while($val!=='true'&& $val!=='false')
     {
         echo "invalid input \n";
-        fscanf(STDIN,"%S\n",$val);
+        fscanf(STDIN,"%s",$val);
     }
     return $val;
 }
 /**function to check whether the given strings are anagrams or not to each other */
 public static function anagram($String1,$String2)
 {
-    $len1=strlen($String1); //calculating the 1string len
-    $len2=strlen($String2); // calculating  the 2 string len
-
-    if($len1==$len2) // validating the lengths are equal or not
+    /**calculating the 1string len */
+    $len1=strlen($String1); 
+    /** calculating  the 2 string len */
+    $len2=strlen($String2); 
+    
+    /** validating the lengths are equal or not */
+    if($len1==$len2) 
     {
-        $array1=str_split($String1); // splitting the string in to array
+        /** splitting the string in to array */
+        $array1=str_split($String1); 
         $array2=str_split($String2);
-        sort($array1); // sorting the array
+        /** sorting the array */
+        sort($array1); 
         sort($array2);
-        $string3=implode("",$array1); //converting in to string
+        /**converting in to string */
+        $string3=implode("",$array1); 
         $string4=implode("",$array2);
-        if($string3==$string4) // checking  both are equal or not
+        /**checking  both are equal or not */
+        if($string3==$string4) 
         {
             echo "given strings are anagram to each other"."\n";
         }
@@ -67,7 +78,7 @@ public static function anagram($String1,$String2)
         }
     }
     else{
-        echo "given are not anagrams:";
+        echo "given strings  are not anagrams:";
     }
     
 }
@@ -75,18 +86,23 @@ public static function anagram($String1,$String2)
 public static  function primes($number)
 {
     $i=0;
-    $primes1=array(); // declaring an array
-     for($indexi=1;$indexi<=$number;$indexi++) //iterating through the loop
+    /** declaring an array */
+    $primes1=array(); 
+    /**iterating through the loop */
+     for($indexi=1;$indexi<=$number;$indexi++) 
      {
         $count=0;
         for($indexj=$indexi;$indexj>=1;$indexj--) 
         {
-            if($indexi%$indexj == 0) // checking the condition of primenumber
+    /**checking the condition of primenumber */
+            if($indexi%$indexj == 0) 
             {
-                $count=$count+1;// incrementing the count value
+                /**incrementing the count value */
+                $count=$count+1;
             }
         }
-        if( $count==2) //equating with 2
+    /**equating with 2 */
+        if( $count==2)
         {
             $primes1[$i]=$indexi;
             $i++;
@@ -189,16 +205,19 @@ public static function binarySearchstring($Array1,$key)
     while($start<=$end)
     {
         $mid=floor($start+($end-$start)/2);
-        if(strcmp($Array1[$mid],$key) ==0) // comaring the key element with mid index 
+        /**comaring the key element with mid index  */
+        if(strcmp($Array1[$mid],$key) ==0) 
         {
             echo "the element found at index ".$mid;
             break;
         }
-        else if(strcmp($Array1[$mid],$key) < 0) //comparing and key and if it is greater than the key incrementing the mid value
+        /**comparing and key and if it is greater than the key incrementing the mid value */
+        else if(strcmp($Array1[$mid],$key) < 0) 
         {
             $start=$mid+1;
         }
-        else if(strcmp($Array1[$mid],$key) > 0)//comparing and key and if it is lesser than the key decrementing the mid value
+        /**comparing and key and if it is lesser than the key decrementing the mid value */
+        else if(strcmp($Array1[$mid],$key) > 0)
         {
             $end=$mid-1;
         }
@@ -313,19 +332,19 @@ public static function calculateDayofWeek($day,$month,$year)
 // depending on the value of d0 by using switch the day falls on certain day
         switch($d0)
         {
-            case 0:echo "the day falls on sunday";
+            case 0:echo "the day falls on sunday\n";
                     break;
-            case 1:echo "the day falls on monday";
+            case 1:echo "the day falls on monday\n";
                     break;
-            case 2:echo "the day falls on tuesday";
+            case 2:echo "the day falls on tuesday\n";
                     break;
-            case 3:echo "the day falls on wednesday";
+            case 3:echo "the day falls on wednesday\n";
                     break;
-            case 4:echo "the day falls on thursday";
+            case 4:echo "the day falls on thursday\n";
                     break;
-            case 5: echo "the day falls on friday";
+            case 5: echo "the day falls on friday\n";
                     break; 
-            case 6: echo "the day falls on saturday";
+            case 6: echo "the day falls on saturday\n";
                     break;
         }
 }

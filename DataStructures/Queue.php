@@ -10,7 +10,8 @@ class Node
 {
     public $data;
     public $next;
-    public function __construct($number) // constructor initializing the variables 
+    /**constructor initializing the variables  */
+    public function __construct($number) 
     {
         $this->data = $number;
         $this->next = null;
@@ -21,29 +22,35 @@ class Queue
     public $front;
     public $rear;
     public $length;
-    public function enqueue($number) // adding the element in to the stack 
+    /** adding the element in to the stack  */
+    public function enqueue($number) 
     {
         $obj= new Node($number);
         if ($this->isEmpty()) 
         {
             $this->front = $obj;
-        } else
+        } 
+        else
          {
             $this->rear->next = $obj; 
-        }
+         }
         $this->rear = $obj;
         $this->length++;
     }
-    public function isEmpty() // checking the condition 
+    /** checking the condition  */
+    public function isEmpty() 
     {
-        if ($this->front == null) {
+        if ($this->front == null) 
+        {
             return true;
         }
         return false;
     }
-    public function dequeue() // dequing the element of a queue
+    /** dequing the element of a queue */
+    public function dequeue() 
     {
-        if (!$this->isEmpty()) {
+        if (!$this->isEmpty())
+        {
             $val = $this->front->data;
             $this->front = $this->front->next;
         } else 
@@ -58,7 +65,8 @@ class Queue
     }
     public function dequeue2()
     {
-        if (!$this->isEmpty()) {
+        if (!$this->isEmpty()) 
+        {
             $val = $this->front->data;
             $this->front = $this->front->next;
         } else 
@@ -86,21 +94,24 @@ class Queue
        // $this->length--;
         return $val;
     }
-    public function size() // function to check the size of an queue
+    /** function to check the size of an queue */
+    public function size() 
     { 
         return $this->length;
     }
-    public function display() // function to display the elements of a queue
+    /** function to display the elements of a queue */
+    public function display() 
     {
         $temp = $this->front;
-        while ($temp != null) {
+        while ($temp != null) 
+        {
             echo $temp->data . " ";
             $temp = $temp->next;
         }
         
-    }
-    
-    public function peek() // function to retieve element of a queue
+    }    
+    public function peek() 
+    /** function to retieve element of a queue */
     {
         return $this->front->data;
     }

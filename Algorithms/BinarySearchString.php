@@ -1,5 +1,6 @@
 <?php
 /**
+* File:BinarySearchString.php
 * Purpose:   Read in a list of words from File. Then prompt the user to enter a word to search the list. 
 * @author :Nishithkumar
 * @version :1.0
@@ -8,7 +9,8 @@
 ******************************************************************************/  
 
  include('Alutility.php');
-$myfile=fopen("String.txt","r") ; //opening  the file
+ /**opening  the file */
+$myfile=fopen("String.txt","r") ; 
 $s=fread($myfile,filesize("String.txt")); //reading the file
 echo $s;
 echo "\n";

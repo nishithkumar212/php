@@ -1,5 +1,6 @@
 <?php
 /**
+ * File:PrimeAnagramAndPAlindrome.php
  * Purpose: program to calculate the primes that are palindrome and anagrams
  * @author :Nishithkumar
  * @version :1.0

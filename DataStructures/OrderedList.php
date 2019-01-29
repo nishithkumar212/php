@@ -9,29 +9,51 @@
 include('Dutility.php');
 include('LinkedList.php');
 $obj=new LinkedList;
-$int=fopen("integer.txt","r"); // opening a file
-$numbers=fread($int,filesize("integer.txt")); //reading a file
-$array1=explode(" ","$numbers"); //converting string in to an array
+    /**
+     * // opening a file
+     */
+$int=fopen("integer.txt","r"); 
+
+    /**
+     * reading a file
+     */
+$numbers=fread($int,filesize("integer.txt")); 
+
+    /**
+     * //converting string in to an array
+     */
+$array1=explode(" ","$numbers"); 
 sort($array1);
 for($i=0;$i<sizeof($array1);$i++)
     {
-    $obj->add($array1[$i]); // adding each element in to the linkedlist
+    /**adding each element in to the linkedlist */
+    $obj->add($array1[$i]); 
     }
-$obj->display(); // displaying the elements of a linkedlist
+
+    /**displaying the elements of a linkedlist */
+$obj->display(); 
 echo "\n";
 echo "enter the search element:";
 $key=Dutility::getInt();
-$bool=$obj->search($key); //function to search an element 
+
+    /**function to search an element  */
+$bool=$obj->search($key); 
 if($bool==true)
     {
-    $obj->delete($key); // if condition is true deleting the element of a linkedlist
+    /** // if condition is true deleting the element of a linkedlist */
+    $obj->delete($key);
     }
 else
     {
-$obj->add($key); // adding the element in to the linkedlist
+     /**adding the element in to the linkedlist */
+$obj->add($key); // 
     }
 $obj->display();
 $s=$obj->getdata();
-$files=fopen("integer.txt","w"); // opening a file 
-fwrite($files,$s); // updating the file
+
+    /**opening a file  */
+$files=fopen("integer.txt","w");
+ 
+    /** updating the file*/
+fwrite($files,$s); 
 ?>
