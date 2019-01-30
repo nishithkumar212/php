@@ -11,13 +11,16 @@
  include('Alutility.php');
  /**opening  the file */
 $myfile=fopen("String.txt","r") ; 
-$s=fread($myfile,filesize("String.txt")); //reading the file
+/**reading the file */
+$s=fread($myfile,filesize("String.txt")); 
 echo $s;
 echo "\n";
-$array=explode(" ","$s"); //converting string in to array
+/**converting string in to array */
+$array=explode(" ","$s"); 
 echo "\n";
 echo "enter the word to search:";
 $sp=Alutility::getString();
- Alutility::binarySearchstring($array,$sp); // function for binary search 
+/** function for binary search  */
+ Alutility::binarySearchstring($array,$sp); 
 echo "\n";
 ?>

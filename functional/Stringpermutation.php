@@ -10,5 +10,6 @@
 include('utility.php');
 echo " enter the string:";
 $str=utility::getString();
+/**function used to call the method  */
 utility::stringPermutation($str);
 ?>

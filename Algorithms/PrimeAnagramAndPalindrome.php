@@ -7,11 +7,16 @@
  * @since :15-01-2019
  *
  ******************************************************************************/
-include('Alutility.php'); //including the file
+/**including the file */
+include('Alutility.php'); 
 echo "enter the range";
-$number=Alutility::getInt(); // calling the method to get int type 
-$array=Alutility::primes($number); // calling the function 
-Alutility::palindrome($array); // calling the function
+/** calling the method to get int type  */
+$number=Alutility::getInt(); 
+/** calling the function  */
+$array=Alutility::primes($number);
+/** calling the function */ 
+Alutility::palindrome($array); 
 echo "\n";
-Alutility::primeanagrams($array); // calling the method
+/**calling the method */
+Alutility::primeanagrams($array); 
 ?>

@@ -10,6 +10,7 @@
  include('Alutility.php');
  echo " enter the string:";
  $name=Alutility::getString();
+ /**splitting the string in to an array */
  $input=str_split($name);
  $output = Alutility::mergeSort($input);
  echo "elements are \n";

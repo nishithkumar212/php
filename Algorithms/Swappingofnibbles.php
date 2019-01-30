@@ -29,14 +29,20 @@ for($j=0;$j<sizeof($binary);$j++)
     }
     $j=0;
     $s=0;
-    $str1=substr($string,0,4);//taking the first 4 values of a string 
-    $str2=substr($string,4,8);// taking the last 4 values of a string by using substring method
-    $str3=$str1; // assignimg 
-    $str3=$str2.$str3; //concatenating
+    /**taking the first 4 values of a string  */
+    $str1=substr($string,0,4);
+    /** taking the last 4 values of a string by using substring method */
+    $str2=substr($string,4,8);
+    /** assignimg  */
+    $str3=$str1; 
+    /**concatenating */
+    $str3=$str2.$str3; 
     //echo $str3;
     echo"\n";
-    $myarr=str_split($str3); //splitting in to array
-        Alutility::decimal($myarr); // function to convert in to decimal
+    /**splitting in to array */
+    $myarr=str_split($str3); 
+    /** function to convert in to decimal */
+        Alutility::decimal($myarr);
     // $array1=explode(" ",$str3);
 
     // for($i=sizeof($array1);$i>=0;$i--)

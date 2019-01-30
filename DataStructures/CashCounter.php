@@ -35,13 +35,19 @@ while($num>0)
                 echo "the balance in the counter is:".$total."\n";
                 $name=$obj->dequeue();
                 echo $name."has dequed \n";
-                echo " the remaining persons in the queue are:\n";
+                //echo " the remaining persons in the queue are:\n";
                 $obj->display();
                 echo "\n";
                 break;
                 
         case 2:  echo " enter the witdrawl amount:";
                  $amount1=Dutility::getInt();
+                 if($amount1>5000)
+                 {
+                     echo "you cant withdraw more than 5000";
+                 }
+                 else
+                 {
                  $total=$total-$amount1;
                  echo "the balance in the counter is:".$total."\n";
                    //$withdrwalamount=$object->dequeue($amount1);
@@ -55,6 +61,8 @@ while($num>0)
                 // echo "enter your choice:";
                 // $b=Dutility::getInt();
     }
+}
+
     $num--;
 
 }

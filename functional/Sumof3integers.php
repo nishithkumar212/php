@@ -11,5 +11,6 @@ include('utility.php');
 $array1=array();
 echo " enter the dimension of an array";
 $number=utility::getInt();
+/**function used to call the method */
 utility::triplets($number);
 ?>

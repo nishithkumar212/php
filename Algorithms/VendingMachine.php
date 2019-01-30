@@ -10,6 +10,8 @@
 include('Alutility.php');
 $array1=array('1000','500','100','50','20','10','5','1');
 echo "enter the money value:";
-$money=Alutility::getInt(); // calling the method
-Alutility::vendingCalculate($array1,$money); // calling the method
+/** calling the method */
+$money=Alutility::getInt(); 
+/**calling the method */
+Alutility::vendingCalculate($array1,$money); 
 ?>

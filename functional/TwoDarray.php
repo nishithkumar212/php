@@ -7,11 +7,13 @@
 * @since 15-01-2019
 *
 ******************************************************************************/  
-
-include('utility.php');//including the  utility file
+/**including the  utility file */
+include('utility.php');
 echo "enter the number of rows "."\n";
-$rows=utility::getInt(); // calling the function
+/** calling the function */
+$rows=utility::getInt(); 
 echo " enter the number of columns "."\n";
 $columns=utility::getInt();
-utility::TwoDarray($rows,$columns); // calling the TwoDarray function in utility file
+/** calling the TwoDarray function in utility file */
+utility::TwoDarray($rows,$columns);
 ?>

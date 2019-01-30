@@ -15,5 +15,6 @@ echo " enter how many years:";
 $y=Alutility::getInt();
 echo "enter the rate value:";
 $r=Alutility::getFloat();
-Alutility::monthlypayment($p,$y,$r); // caling the function declared in utility
+/**caling the function declared in utility */
+Alutility::monthlypayment($p,$y,$r); 
 ?>

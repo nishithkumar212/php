@@ -10,5 +10,6 @@
 include('Alutility.php');
 echo " enter a number";
 $num=Alutility::getInt();
-Alutility::squareroot($num); // function to calculate the square root of a given number
+/** function to calculate the square root of a given number */
+Alutility::squareroot($num); 
 ?>

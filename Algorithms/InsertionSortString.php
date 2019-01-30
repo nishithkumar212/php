@@ -7,16 +7,23 @@
 * @since :15-01-2019
 *
 ******************************************************************************/  
-
-include('Alutility.php');//including the file
-$myfile=fopen("String.txt","r") ; //opening the file and storing in a file
-$string=fgets($myfile); //retrieving the file
-echo $string; // printing the file content
+/**including the file */
+include('Alutility.php');
+/**opening the file and storing in a file */
+$myfile=fopen("String.txt","r") ; 
+/**retrieving the file */
+$string=fgets($myfile);
+/** printing the file content */ 
+echo $string; 
 echo "\n";
-$array1=explode(" ",$string); // converting in to string
-for($i=0;$i<sizeof($array1);$i++) //iterating through the loop
+/** converting in to string */
+$array1=explode(" ",$string); 
+/**iterating through the loop */
+for($i=0;$i<sizeof($array1);$i++) 
 {
-    echo $array1[$i]; // printing the index of an array
+    /** printing the index of an array */
+    echo $array1[$i]; 
 }
-Alutility::insertionsortstring($array1); //calling the method 
+/**calling the method  */
+Alutility::insertionsortstring($array1); 
 ?>

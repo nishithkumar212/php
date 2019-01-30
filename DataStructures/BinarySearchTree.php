@@ -27,7 +27,7 @@ public  function factorial($num)
  *  creating an object.
  */
 $obj=new binarysearchtree; 
-echo "enter a number:";
+echo "enter a number of nodes:";
 $num=Dutility::getInt();
 $first=$obj->factorial(2*$num);
 $second=$obj->factorial($num+1);
@@ -37,4 +37,4 @@ $third=$obj->factorial($num);
  * formuale to calculate the binary search 
  */
 $formulae=floor($first/($second*$third)); 
-echo  "the binary search of a tree is:".$formulae;
+echo  "the possible  binary search of a tree is:".$formulae;
