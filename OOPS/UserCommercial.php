@@ -1,4 +1,10 @@
 <?php
+/**
+ * Purpose: 
+ * @author Nishithkumar
+ * @version 1.0
+ * @since 30-01-2019
+ ******************************************************************************/
 include 'Outility.php';
 /**
  * creating a user-defined class
@@ -21,6 +27,7 @@ function CreateAccount()
     $uname = Outility::getString();
     $file = $uname . ".json";
     fopen("$file", "w");
+    echo "your account is created with your name:".$uname."\n";
 }
 /**
  * function to display the stock details
@@ -68,7 +75,6 @@ function ToSell($arry)
     for ($i = $one; $i <= $one; $i++) {
         $number = $arry[$i]->share;
         $sharevalue = $number - $str;
-        print_r($sharevalue);
         $arry[$i]->share = $sharevalue;
     }
     /**
@@ -112,7 +118,7 @@ function search($arrs)
  */
 function decode()
 {
-    echo "enter the name";
+    echo "enter your  name";
     $uname = Outility::getString();
     $myfile = $uname . ".json";
     $jvalue = json_decode(file_get_contents($myfile));

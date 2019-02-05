@@ -123,9 +123,13 @@ class LinkedList
     public  function display()
     {
         $n=$this->head;
+        $arry=array();
         while($n!=null)
         {
-            echo $n->data." ";
+            echo $n->data->name.",";
+            echo $n->data->share.",";
+            echo $n->data->price;
+            echo "\n";
             $n=$n->next;
         }
     }
@@ -138,8 +142,10 @@ class LinkedList
         $n=$this->head;
         while($n!=null)
         {
-            $st=$st.$n->data." ";
-            $n=$n->next;
+            $st=$st.$n->data->name;
+            $st=$st.$n->data->share;
+            $st=$st.$n->data->price;
+
         }
      return $st;
     }

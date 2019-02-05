@@ -1,4 +1,11 @@
 <?php
+/**
+ * Purpose: Design of simple Address Book.
+ * @author Nishithkumar
+ * @version 1.0
+ * @since 23-01-2019
+ *
+ ******************************************************************************/
 include 'Outility.php';
 class Person
 {
@@ -51,7 +58,7 @@ function createPerson(&$addressBook)
  */
 function edit(&$person)
 {
-    echo "Enter 1 to change Address\nEnter 2 change Mobile Number ";
+    echo "Enter 1 to change Address ";
     $choice = Outility::getInt();
     switch ($choice) {
         case '1':
@@ -64,14 +71,9 @@ function edit(&$person)
             echo "Enter Address\n";
             $person->address = Outility::getString();
             echo "Address changes succesfully \n";
-            break;
-
-        case '2':
             echo "Enter Mobile Number \n";
             $person->phone = Outility::getInt();
             echo "Moble no changed succesfully\n";
-            break;
-        default:
             break;
     }
 }
@@ -92,21 +94,17 @@ function delete(&$arr)
 }
 
 /**
- * function tosearch the array for specific person and return the index of person or -1 if not found
+ * function developed to indicate to search the index based given by the user 
  * @param arr the array containig person from which to search
- * @return index of the searched item or -1 if not found
+ * @return index of the searched item or -1 it indicates  search element is not found
  */
 function search($arr)
 {
     echo "Enter firstaname to search\n";
     $fname = Outility::getString();
-    echo "Enter last name\n";
-    $lname = Outility::getString();
     for ($i = 0; $i < count($arr); $i++) {
         if ($arr[$i]->fname == $fname) {
-            if ($arr[$i]->lname == $lname) {
                 return $i;
-            }
         }
     }
     return -1;
@@ -128,14 +126,14 @@ function printBook($arr)
  * @param arr the array containig person object to sort
  * @param  prop the property for which to sort
  */
-function sortBook(&$arr, $prop)
+function sortBook(&$arr, $val)
 {
     for ($i = 1; $i < count($arr); $i++) {
         // getting value for back element
         $j = ($i - 1);
         //saving it in temperary variable;
         $temp = $arr[$i];
-        while ($j >= 0 && $arr[$j]->{$prop} >= $temp->{$prop}) {
+        while ($j >= 0 && $arr[$j]->{$val} >= $temp->{$val}) {
             $arr[$j + 1] = $arr[$j];
             $j--;
         }
@@ -145,15 +143,14 @@ function sortBook(&$arr, $prop)
 }
 
 /**
- * function to save passed adrees bokk ib json file
+ * function to save the address book
  *
- * @param arr the array containing the person object ie addressbook to sav ein the file
+ * the parameter indicates an array to what to save in the json file
  */
 function save($addressBook)
 {
     file_put_contents("AddressBook.json", json_encode($addressBook));
 }
-
 /**
  * function act as a default menu for the program
  */
@@ -176,7 +173,6 @@ function menu($addressBook)
                     break;
                 }
             }
-            // /var_dump($i);
             if ($k == 1) {
                 menu($addressBook);
             } else {
@@ -189,15 +185,13 @@ function menu($addressBook)
             menu($addressBook);
             break;
         case '4':
-            echo "Enter 1 to sort by Name\nEnter 2 to sort by Zip\nElse to Menu";
-            $c = Utility::getInt();
+            echo "Enter 1 to sort by NamenElse to Menu";
+            $c = Outility::getInt();
             if ($c == 1) {
                 sortBook($addressBook, "fname");
                 printBook($addressBook);
-            } else if ($c == 2) {
-                sortBook($addressBook, "zip");
-                printBook($addressBook);
-            } else {
+            }
+             else {
                 menu($addressBook);
             }
             fscanf(STDIN, "%s\n");

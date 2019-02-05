@@ -3,7 +3,7 @@
  * Purpose: Create a JSON file having Inventory Details for Rice, Pulses and Wheats with properties name, weight, price per kg.
  * @author Nishithkumar
  * @version 1.0
- * @since 23-01-2019
+ * @since 30-01-2019
  *
  ******************************************************************************/
 include 'Outility.php';
