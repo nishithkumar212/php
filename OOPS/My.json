@@ -1,17 +1,1 @@
-[
-{
-    "name":"rice",
-    "weight":25,
-    "price":2000
-},
-{
-    "name":"pulses",
-    "weight":5,
-    "price":200
-},
-{
-    "name":"wheat",
-    "weight":5,
-    "price":180
-}
-]
+[{"name":"vijaya","weight":"25","price":"1200"},{"name":"mysore","weight":"25","price":"2500"},{"name":"ashirvad","weight":"25","price":"150"}]

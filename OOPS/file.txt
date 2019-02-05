@@ -1,0 +1,281 @@
+<?php
+include('AddressBookmain.php');
+
+class my
+{
+public static function menu($choice)
+{
+        $arr=array();
+    switch($choice)
+    {
+        case 1:AddressBook::CreateAccount($arr);
+                break;
+        case 2:AddressBook::open();
+                break;
+        case 3:save();
+                break;
+        case 4:saveas();
+                break;
+        case 5:close();
+                break;
+    }
+}
+}
+echo "1.create Account \n";
+echo "2.open Account \n";
+echo "3.save Account \n";
+echo "4.save as \n";
+echo "5.close \n";
+echo "enter your choice:\n";
+$choice=Outility::getInt();
+$object=new my;
+$object->menu($choice);
+-----------------------------------------------------------------------------------------
+?php
+include('Outility.php');
+include('methods.php');
+class AddressBook
+{
+    public $fname;
+    public $lname;
+    public $address;
+    public $city;
+    public $state;
+    public $zip;
+    public $phone;
+    public function getfname($fname)
+    {
+        echo  $this->$fname;
+    }
+    public function setfname($fname)
+    {
+        $this->fname=$fname;
+    }
+    public function getlname($lname)
+    {
+        echo $this->$lname;
+    }
+    public function setlname($lname)
+    {
+        $this->lname=$lname;
+    }
+    public function getaddress($address)
+    {
+        echo  $this->$address;
+    }
+    public function setaddress($address)
+    {
+        $this->address=$address;
+    }public function getcity($city)
+    {
+        return $this->$city;
+    }
+    public function setcity($city)
+    {
+        $this->city=$city;
+    }public function getstate($state)
+    {
+        return $this->$state;
+    }
+    public function setstate($state)
+    {
+        $this->state=$state;
+    }public function getzip($zip)
+    {
+        return $this->$zip;
+    }
+    public function setzip($zip)
+    {
+        $this->zip=$zip;
+    }public function getphone($phone)
+    {
+        echo  $this->$phone;
+    }
+    public function setphone($phone)
+    {
+        $this->phone=$phone;
+    }
+public static function CreateAccount($arr)
+{
+     echo "enter your name: to create an account";
+     $name=Outility::getString();
+     $file=$name.".json";
+     $myfile = fopen($file, "w");
+}
+public static function open()
+{
+    echo "1.add 2.edit 3.delete 4. sortbyname  5.sortbyzip 6 .print 7. exit\n";
+     echo "enter your choice:";
+     $choice=Outility::getInt();
+     $arr=array();
+     echo "enter your name:";
+     $name=Outility::getString(); 
+     $arrs= json_decode(file_get_contents($name.".json"));
+     switch($choice)
+     {
+         case 1:
+                
+               Methods:: add($name,$arr);
+                break;
+         case 2:
+                Methods::edit($name,$arr);
+                break;
+         case 3:
+              
+                delete($arrs);
+                break;
+         case 4:sortbyname();
+                break;
+         case 5:sortbyzip();
+                break;
+         case 6:printit($arrs);
+                break;
+         case 7:exit();
+                break;
+
+     }
+}
+public static function save()
+{
+
+}
+public static function close()
+{
+
+}
+}
+---------------------------------------------------------------------------------------
+<?php
+//include('AddressBookmain.php');
+class Methods
+{
+    public static function add($name,$arr)
+    {
+        
+         if(file_exists($name.".json"))
+         {
+        echo "enter your fname:\n";
+    $fname=Outility::getString();
+    echo "enter your lname:\n";
+    $lname=Outility::getString();
+    echo "enter your address:\n";
+    $address=Outility::getString();
+    echo "enter your city:\n";
+    $city=Outility::getString();
+    echo "enter your state:\n";
+    $state=Outility::getString();
+    echo "enter your zip:\n";
+    $zip=Outility::getInt();
+    echo "enter your phone:\n";
+    $phone=Outility::getInt();
+    $obj=new AddressBook;
+    $obj->setfname($fname);
+    $obj->setlname($lname);
+    $obj->setaddress($address);
+    $obj->setcity($city);
+    $obj->setstate($state);
+    $obj->setzip($zip);
+    $obj->setphone($phone);
+    $arr=$obj;
+    $data=json_encode($arr);
+    $file=$name.".json";
+    file_put_contents($file,$data);
+    }
+    else
+    {
+        echo "file not exists:";
+    }
+}
+    public static function edit($name,$arr)
+    {
+        echo "1.fname 2.lname 3.address 4.city 5.state 6.zip 7.phone:\n";
+        echo "enter your choice to edit:";
+        $choice=Outility::getInt();
+        $o=new AddressBook;
+        switch($choice)
+        {
+            case 1: echo "enter the fname:";
+                    $f=Outility::getString();
+                
+                    $arr=$o;
+                    $data=json_encode($arr);
+                    $file=$name.".json";
+                    file_put_contents($file,$data);
+                    break;
+            case 2: echo "enter the lname:";
+                    $l=Outility::getString();
+                    $o->setlname($f);
+                    break;
+            case 3: echo "enter the address:";
+                    $a=Outility::getString();
+                    $o->setaddress($f);
+                    break;
+            case 4: echo "enter the city:";
+                    $c=Outility::getString();
+                    $o->setcity($c);
+                    break;
+            case 5: echo "enter the state:";
+                    $s=Outility::getString();
+                    $o->setcity($s);
+                    break;
+            case 6: echo "enter the zip:";
+                    $z=Outility::getInt();
+                    $o->setfname($z);
+                    break;
+            case 7: echo "enter the phone:";
+                    $p=Outility::getint();
+                    $o->setphone($p);
+                    break;  
+                   
+                    
+        }
+    }
+}
+    function search($arr)
+    {
+        echo "Enter firstaname to search\n";
+    $fname = Outility::getString();
+    echo "Enter last name\n";
+    $lname = Outility::getString();
+    for ($i = 0; $i < sizeof($arr); $i++) {
+        // if ($arr[$i]->fname == $fname) {
+        //     if ($arr[$i]->lname == $lname) {
+        //         return $i;
+        //     }
+        // }
+        echo $arr[$i];
+    }
+    return -1;
+    }
+     function delete($arr)
+    {
+         $i = search($arr);
+    if ($i > -1) {
+        array_splice($arr, $i, 1);
+        echo "Entry Deleted\n";
+    } else {
+        echo "Entry Not Found\n";
+    }
+    fscanf(STDIN, "%s\n");
+    }
+    function  sortbyname()
+   {
+
+   }
+    function sortbyzip()
+   {
+
+   }
+    function printit($arr)
+   {
+    foreach ($arr as $person) {
+       echo $person->fname;
+       echo $person->lname;
+       
+    }
+
+   }
+     function exits()
+   {
+        exit();
+   }

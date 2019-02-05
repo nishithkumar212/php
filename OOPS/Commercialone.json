@@ -1,0 +1,31 @@
+
+[
+     {
+        "name":"tiger",
+        "share":50,
+        "price":23
+    },
+    {
+        "name":"britania",
+        "share":20,
+        "price":25
+    },
+    {
+        "name":"krackjack",
+        "share":20,
+        "price":2200
+    },
+
+    {
+        "name":"parleg",
+        "share":20,
+        "price":2200
+    },
+    {
+        "name":"mariagold",
+        "share":20,
+        "price":2200
+    }
+
+
+]

@@ -33,4 +33,14 @@ class Outility
         }
         return $float;
     }
+    public static function boolean()
+    {
+        fscanf(STDIN, "%s", $val);
+        while ($val !== 'true' && $val !== 'false') {
+            echo "invalid input \n";
+            fscanf(STDIN, "%s", $val);
+        }
+        return $val;
+    }
 }
+
