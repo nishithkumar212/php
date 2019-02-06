@@ -58,9 +58,9 @@ class Inventory
         $this->price = $shareprice;
     }
 }
-    /**
-     * function to ask the user and enter the details of Rice,pulses,And wheat.
-     */
+/**
+ * function to ask the user and enter the details of Rice,pulses,And wheat.
+ */
 function add($arr)
 {
     $arrayone = array("Rice", "pulses", "wheat");
@@ -84,12 +84,12 @@ function add($arr)
          */
         $obj->setname($names);
 
-         /**
+        /**
          * calling the setters method to initialize the variables.
          */
         $obj->setweight($weights);
 
-         /**
+        /**
          * calling the setters method to initialize the variables.
          */
         $obj->setprice($price);
@@ -110,9 +110,9 @@ function add($arr)
         $j++;
     }
 }
-        /**
-         * function that takes the json file content and displaying the values
-         */
+/**
+ * function that takes the json file content and displaying the values
+ */
 function user($data)
 {
     foreach ($data as $key) {
@@ -127,12 +127,12 @@ function user($data)
     }
 }
 $arr = array();
-        /**
-         * function calling to add the details 
-         */
+/**
+ * function calling to add the details
+ */
 add($arr);
-        /**
-         * calling the json file through the method json_decode
-         */
+/**
+ * calling the json file through the method json_decode
+ */
 $data = json_decode(file_get_contents('My.json'));
 user($data);

@@ -1,6 +1,6 @@
 <?php
 /**
- * Purpose: 
+ * Purpose:tockAccount.java implements a data type that might be used by a financial institution to keep track of customer information.
  * @author Nishithkumar
  * @version 1.0
  * @since 30-01-2019
@@ -27,7 +27,7 @@ function CreateAccount()
     $uname = Outility::getString();
     $file = $uname . ".json";
     fopen("$file", "w");
-    echo "your account is created with your name:".$uname."\n";
+    echo "your account is created with your name:" . $uname . "\n";
 }
 /**
  * function to display the stock details
@@ -84,7 +84,7 @@ function ToSell($arry)
 }
 
 /**
- * function which is used to print all the stock details of user account values 
+ * function which is used to print all the stock details of user account values
  */
 function ToPrint($val)
 {
@@ -99,9 +99,9 @@ function ToPrint($val)
     }
     echo "the total value of all the stocks is:$total\n";
 }
-    /**
-     * function to search an given element by the user
-     */
+/**
+ * function to search an given element by the user
+ */
 function search($arrs)
 {
     echo "Enter stockname to search\n";
@@ -139,15 +139,14 @@ function menu($address)
 
     echo "1.create an account 2.to buy 3.to sell 4.toprint 5.exit";
     $number = Outility::getInt();
-    switch ($number) 
-    {
+    switch ($number) {
         /**
-         * case 1:which it is used to create an account
-         */
+             * case 1:which it is used to create an account
+             */
         case 1:CreateAccount();
             menu($address);
             break;
-            /**
+        /**
              * case2:which it is used to add the details to a user-defined account
              */
         case 2:StockDetails($address);
@@ -162,7 +161,7 @@ function menu($address)
             save($arry);
             menu($address);
             break;
-            /**
+        /**
              * case3:which it is used sell the stocks from the user-defined account
              */
         case 3:

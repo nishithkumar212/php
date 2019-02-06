@@ -46,15 +46,15 @@ $Date = date("d/m/y");
  */
 $string = preg_replace($arrayone[0], $name, $string);
 /**
- * using the function to match specific content fullname in the string 
+ * using the function to match specific content fullname in the string
  */
 $string = preg_replace($arrayone[1], $fullname, $string);
 /**
- * using the function to match specific content mobileno in the string 
+ * using the function to match specific content mobileno in the string
  */
 $string = preg_replace($arrayone[2], $mobileno, $string);
 /**
- * using the function to match specific content mobileno in the string 
+ * using the function to match specific content mobileno in the string
  */
 $string = preg_replace($arrayone[3], $Date, $string);
 echo $string;

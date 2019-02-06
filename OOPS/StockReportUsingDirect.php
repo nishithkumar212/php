@@ -34,14 +34,14 @@ class Stock
     {
         $this->name = $name;
     }
-     /**
+    /**
      * Generating getters method
      */
     public function getsharenumber()
     {
         return $this->sharenumber;
     }
-     /**
+    /**
      * Generating setters method
      */
     public function setsharenumber($sharenumber)
@@ -88,9 +88,9 @@ function add($number, $arr)
         $obj->setshareprice($shareprice);
         $arr[$i] = $obj;
     }
-    /**
-     * returning the generated array of objects
-     */
+       /**
+        * returning the generated array of objects
+        */
     return $arr;
 }
 
@@ -100,13 +100,13 @@ $arr = array();
 $arrayone = add($number, $arr);
 $total = 0;
 /**
- * printing the each and every stock information 
+ * printing the each and every stock information
  */
 foreach ($arrayone as $first) {
     echo $first->name . "\n";
     echo $first->sharenumber . "\n";
     echo $first->shareprice . "\n";
-    echo "the stock value is:" . ($first->sharenumber * $first->shareprice)."\n";
+    echo "the stock value is:" . ($first->sharenumber * $first->shareprice) . "\n";
     $total = ($total + $first->sharenumber * $first->shareprice);
 }
 /**

@@ -3,8 +3,7 @@
  * Purpose: Design of simple Address Book.
  * @author Nishithkumar
  * @version 1.0
- * @since 23-01-2019
- *
+ * @since 30-01-2019
  ******************************************************************************/
 include 'Outility.php';
 class Person
@@ -94,7 +93,7 @@ function delete(&$arr)
 }
 
 /**
- * function developed to indicate to search the index based given by the user 
+ * function developed to indicate to search the index based given by the user
  * @param arr the array containig person from which to search
  * @return index of the searched item or -1 it indicates  search element is not found
  */
@@ -104,7 +103,7 @@ function search($arr)
     $fname = Outility::getString();
     for ($i = 0; $i < count($arr); $i++) {
         if ($arr[$i]->fname == $fname) {
-                return $i;
+            return $i;
         }
     }
     return -1;
@@ -156,11 +155,12 @@ function save($addressBook)
  */
 function menu($addressBook)
 {
-    echo "\nEnter 1 to add person\nEnter 2 to Edit a person\nEnter 3 to Delete a person\nEnter 4 to Sort and Display\nEnter 5 to search\nEnter anything to exit\n";
+    echo "\nEnter 1 to add person\nEnter 2 to Edit a person\nEnter 3 to Delete a person\nEnter 4 to Sort and Display\n\nEnter anything to exit\n";
     $ch = Outility::getInt();
     switch ($ch) {
         case '1':
             createPerson($addressBook);
+            save($addressBook);
             menu($addressBook);
             break;
         case '2':
@@ -177,11 +177,13 @@ function menu($addressBook)
                 menu($addressBook);
             } else {
                 $addressbook[$i] = edit($addressBook[$i]);
+                save($addressBook);
             }
             menu($addressBook);
             break;
         case '3':
             delete($addressBook);
+            save($addressBook);
             menu($addressBook);
             break;
         case '4':
@@ -189,30 +191,13 @@ function menu($addressBook)
             $c = Outility::getInt();
             if ($c == 1) {
                 sortBook($addressBook, "fname");
+                save($addressBook);
                 printBook($addressBook);
-            }
-             else {
+            } else {
                 menu($addressBook);
             }
             fscanf(STDIN, "%s\n");
             menu($addressBook);
-            break;
-        case '5':
-            $i = search($addressBook);
-            if ($i > -1) {
-                $arr = [];
-                $arr[] = $addressBook[$i];
-                printBook($arr);
-            }
-            echo "\n";
-            fscanf(STDIN, "%s\n");
-            menu($addressBook);
-            break;
-        default:
-            echo "Enter 1 to save ";
-            if (Outility::getInt() == 1) {
-                save($addressBook);
-            }
             break;
     }
 

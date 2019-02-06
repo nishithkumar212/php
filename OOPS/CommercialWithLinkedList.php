@@ -1,12 +1,12 @@
 <?php
 /**
- * Purpose:  List of CompanyShares in a Linked List So new CompanyShares can be added or removed easily. 
+ * Purpose:  List of CompanyShares in a Linked List So new CompanyShares can be added or removed easily.
  * @author Nishithkumar
  * @version 1.0
  * @since 30-01-2019
  ******************************************************************************/
-include('Outility.php');
-include('LinkedList.php');
+include 'Outility.php';
+include 'LinkedList.php';
 /**
  * creating a user-defined class.
  */
@@ -20,24 +20,24 @@ class Stocks
     public $price;
 }
 /**
- * function which is used to initialize the variables of a class 
+ * function which is used to initialize the variables of a class
  */
 function ToAdd($arr)
 {
     echo "enter the  stock name:";
-    $uname=Outility::getString();
+    $uname = Outility::getString();
     echo "enter the share:";
-    $ushare=Outility::getInt();
+    $ushare = Outility::getInt();
     echo "enter the price:";
-    $uprice=Outility::getInt();
-    $obj=new Stocks;
-    $obj->name=$uname;
-    $obj->share=$ushare;
-    $obj->price=$uprice;
+    $uprice = Outility::getInt();
+    $obj = new Stocks;
+    $obj->name = $uname;
+    $obj->share = $ushare;
+    $obj->price = $uprice;
     /**
      * storing the object of class in to an array
      */
-    $arr=$obj;
+    $arr = $obj;
     /**
      * returning the stored value.
      */
@@ -49,23 +49,20 @@ function ToAdd($arr)
 function ToRemove($objs)
 {
     echo "enter the stock name:";
-    $sname=Outility::getString();
+    $sname = Outility::getString();
     /**
      * function which it is used to search the user given named in a linked list
      */
-    $bool=search($sname,$objs);
+    $bool = search($sname, $objs);
     /**
      * if bool ==true it indicates the presenece of a user given name in a linked list
      */
-    if($bool==true)
-    {
-    /**
-     * function used to delete the user given stock name
-     */
-        delete($sname,$objs);
-    }
-    else
-    {
+    if ($bool == true) {
+        /**
+         * function used to delete the user given stock name
+         */
+        delete($sname, $objs);
+    } else {
         /**
          * printing it wheteher it is not available in linkedlist
          */
@@ -75,76 +72,71 @@ function ToRemove($objs)
 /**
  * function which it is used to delete the user given name.
  */
- function delete($key,$objs)
+function delete($key, $objs)
 {
-    $temp=$objs->head;
-    while($temp!=null && $temp->data->name==$key)
-    {
-        $head=$temp->next;
+    $temp = $objs->head;
+    while ($temp != null && $temp->data->name == $key) {
+        $head = $temp->next;
     }
-    while($temp!=null && $temp->data->name!=$key)
-    {
-        $previous=$temp;
-        $temp=$temp->next;
+    while ($temp != null && $temp->data->name != $key) {
+        $previous = $temp;
+        $temp = $temp->next;
     }
-        $previous->next=$temp->next;
+    $previous->next = $temp->next;
 }
 /**
  * function developed to search a given stock name is present or not
  */
- function search($key1,$objs)
-    {
-        $n=$objs->head;
-        while($n!=null)
-        {
-            if(($n->data->name)==$key1)
-            {
-                return true;
-            }
-            $n=$n->next;
+function search($key1, $objs)
+{
+    $n = $objs->head;
+    while ($n != null) {
+        if (($n->data->name) == $key1) {
+            return true;
         }
-        return false;
+        $n = $n->next;
     }
-    /**
-     * function used to exit from the program
-     */
+    return false;
+}
+/**
+ * function used to exit from the program
+ */
 function ToExit()
 {
     exit();
 }
-    /**
-     * function used to display the menu of some content for the user to perform some operations.
-     */
+/**
+ * function used to display the menu of some content for the user to perform some operations.
+ */
 function menu($object)
 {
     echo "enter 1.ToAdd 2.ToRemove 3.Toprint 4.ToExit ";
-    $number=Outility::getInt();
-    $arr=array();
-    $objs=$object;
-    switch($number)
-    {
+    $number = Outility::getInt();
+    $arr = array();
+    $objs = $object;
+    switch ($number) {
         case 1:
-                $rrr=ToAdd($arr);
-                $objs->add($rrr);
-                menu($objs);
-                break;
+            $rrr = ToAdd($arr);
+            $objs->add($rrr);
+            menu($objs);
+            break;
         case 2:ToRemove($objs);
-                $objs->display();
-                menu($objs);
-                break;
+            $objs->display();
+            menu($objs);
+            break;
         case 3:
-                $object->display();
-                menu($objs);
-                break;
+            $object->display();
+            menu($objs);
+            break;
         case 4:ToExit();
-                break;
+            break;
 
     }
 }
 /**
  * creating an object for the LinkedList developed class.
  */
-$object=new LinkedList;
+$object = new LinkedList;
 /**
  * initially calling the menu function.
  */
