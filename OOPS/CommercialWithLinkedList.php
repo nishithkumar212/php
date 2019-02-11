@@ -12,15 +12,15 @@ include 'LinkedList.php';
  */
 class Stocks
 {
-    /**
-     * declaring the global variables
-     */
+
+     // declaring the global variables     
     public $name;
     public $share;
     public $price;
 }
 /**
  * function which is used to initialize the variables of a class
+ * @param indicates an array
  */
 function ToAdd($arr)
 {
@@ -34,43 +34,37 @@ function ToAdd($arr)
     $obj->name = $uname;
     $obj->share = $ushare;
     $obj->price = $uprice;
-    /**
-     * storing the object of class in to an array
-     */
+
+     // storing the object of class in to an array
     $arr = $obj;
-    /**
-     * returning the stored value.
-     */
+    
+    //  returning the stored value.
     return $arr;
 }
 /**
  * function which it is used to remove the dta a from the storedLinkedList
+ * @param indicates an array of object to remove
  */
 function ToRemove($objs)
 {
     echo "enter the stock name:";
     $sname = Outility::getString();
-    /**
-     * function which it is used to search the user given named in a linked list
-     */
+
+     // function which it is used to search the user given named in a linked list
     $bool = search($sname, $objs);
-    /**
-     * if bool ==true it indicates the presenece of a user given name in a linked list
-     */
+     // if bool ==true it indicates the presenece of a user given name in a linked list
     if ($bool == true) {
-        /**
-         * function used to delete the user given stock name
-         */
+         // function used to delete the user given stock name
         delete($sname, $objs);
     } else {
-        /**
-         * printing it wheteher it is not available in linkedlist
-         */
+        
+         // printing it wheteher it is not available in linkedlist
         echo "the entered stock name is not present in linked list";
     }
 }
 /**
  * function which it is used to delete the user given name.
+ * @param indicates the name and the array 
  */
 function delete($key, $objs)
 {
@@ -133,11 +127,8 @@ function menu($object)
 
     }
 }
-/**
- * creating an object for the LinkedList developed class.
- */
+
+//  creating an object for the LinkedList developed class.
 $object = new LinkedList;
-/**
- * initially calling the menu function.
- */
+//  initially calling the menu function.
 menu($object);

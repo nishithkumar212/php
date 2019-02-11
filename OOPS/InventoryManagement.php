@@ -9,58 +9,50 @@
 include 'Outility.php';
 class stock
 {
-    /**
-     * Declaring the variables
-     */
+
+     // Declaring the variables     
     public $name;
     public $share;
     public $price;
-    /**
-     * Generating getters method
-     */
+    
+     // Generating getters method    
     public function getname()
     {
         return $this->name;
     }
-    /**
-     * Generating setters method
-     */
+
+     // Generating setters method
     public function setname($name)
     {
         $this->name = $name;
     }
-    /**
-     * Generating getters method
-     */
+
+     // Generating getters method 
     public function getshare()
     {
         return $this->sharenumber;
     }
-    /**
-     * Generating setters method
-     */
+    
+     // Generating setters method 
     public function setshare($sharenumber)
     {
         $this->share = $sharenumber;
     }
-    /**
-     * Generating getters method
-     */
+    
+     // Generating getters method  
     public function getprice()
     {
         return $this->price;
     }
-    /**
-     * Generating the setters method
-     */
+
+     // Generating the setters method     
     public function setprice($shareprice)
     {
         $this->price = $shareprice;
     }
 }
-/**
- * function developed to add the number of stocks to be added
- */
+
+ // function developed to add the number of stocks to be added 
 function add($port)
 {
     echo " enter the no of stocks:";
@@ -83,9 +75,8 @@ function add($port)
         $j++;
     }
 }
-/**
- * function to print each and every stock detail
- */
+
+ // function to print each and every stock detail 
 function printed($data)
 {
     $total = 0;
@@ -100,15 +91,12 @@ function printed($data)
     echo "Total Value Of Stocks is : " . $total . " rs\n";
 }
 $port = array();
-/**
- * function developed to add  data to the json file
- */
+
+ // function developed to add  data to the json file
 add($port);
-/**
- * function to get the json_file by using json_decode method
- */
+
+ // function to get the json_file by using json_decode method 
 $data = json_decode(file_get_contents('Stock.json'));
-/**
- * function developed to print the stock details.
- */
+
+//  function developed to print the stock details.
 printed($data);

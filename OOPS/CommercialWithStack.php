@@ -12,9 +12,9 @@ include 'Stack.php';
  */
 class Commercial
 {
-    /**
-     * Declaring the variables of a class
-     */
+    
+     // Declaring the variables of a class
+     
     public $name;
     public $share;
     public $price;
@@ -32,6 +32,9 @@ function ToBuy($uname, $ushare, $uprice, $jvalue)
     $jvalue[] = $obj;
     return $jvalue;
 }
+/**
+ * function to sell the stocks to remove the shares from the json file
+ */
 function sell($arrs)
 {
     // {
@@ -57,11 +60,17 @@ function sell($arrs)
     // }
     return $arrs;
 }
+/**
+ * function used to get the json file contents
+ */
 function decode()
 {
     $jvalue = json_decode(file_get_contents('stars.json'));
     return $jvalue;
 }
+/**
+ * function used to find the  searched stock name
+ */
 function search($arrs)
 {
     echo "Enter stockname to search\n";
@@ -73,15 +82,24 @@ function search($arrs)
     }
     return -1;
 }
+/**
+ * function which it is used to exit from the  program
+ */
 function exits()
 {
     exit();
 }
+/**
+ * function used to save the content in to the json file
+ */
 function save($valuesof)
 {
     $arry = json_encode($valuesof);
     file_put_contents('stars.json', $arry);
 }
+/**
+ * function used to display the details whether what actions to be performed.
+ */
 function menu($address, $stacks)
 {
     echo "  enter 1.buy 2.sell  3.print 4.exit:\n";
@@ -112,6 +130,9 @@ function menu($address, $stacks)
             break;
     }
 }
+
+//  function used to get the details of json file. 
 $address = json_decode(file_get_contents('stars.json'));
+ // creating an object for stack
 $stacks = new Stack;
 menu($address, $stacks);

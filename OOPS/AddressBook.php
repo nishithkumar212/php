@@ -8,9 +8,7 @@
 include 'Outility.php';
 class Person
 {
-    /**
-     * declaring the variables
-     */
+    //declaring the variables
     public $fname;
     public $lname;
     public $address;
@@ -20,15 +18,13 @@ class Person
     public $phone;
 }
 
-/**
- * function to create the person object asked by the user.
- * @parameter indicates to store the object in the addressbook array
- */
+  /**
+   * function to create the person object asked by the user.
+   * @parameter indicates to store the object in the addressbook array
+   */
 function createPerson(&$addressBook)
 {
-    /**
-     * creating the object.
-     */
+    //creating the object
     $person = new Person();
     //asking user for input for person object
     echo "Enter Firstname \n";
@@ -45,9 +41,7 @@ function createPerson(&$addressBook)
     $person->address = Outility::getString();
     echo "Enter Mobile Number \n";
     $person->phone = Outility::getInt();
-    /**
-     * storing the newly created object in to addressbook array
-     */
+     // storing the newly created object in to addressbook array
     $addressBook[] = $person;
 }
 
@@ -57,10 +51,7 @@ function createPerson(&$addressBook)
  */
 function edit(&$person)
 {
-    echo "Enter 1 to change Address ";
-    $choice = Outility::getInt();
-    switch ($choice) {
-        case '1':
+    
             echo "Enter State\n";
             $person->state = Outility::getString();
             echo "Enter City\n";
@@ -73,10 +64,7 @@ function edit(&$person)
             echo "Enter Mobile Number \n";
             $person->phone = Outility::getInt();
             echo "Moble no changed succesfully\n";
-            break;
     }
-}
-
 /**
  * Function to delete the object of person from the array
  */
@@ -118,7 +106,6 @@ function printBook($arr)
         echo sprintf("%s %s\n%s\n%s, %s\nZip - %u\nMobile- %u\n\n", $person->fname, $person->lname, $person->address, $person->city, $person->state, $person->zip, $person->phone);
     }
 }
-
 /**
  * function to sort the array by person object property
  *
@@ -140,13 +127,20 @@ function sortBook(&$arr, $val)
 
     }
 }
-
+function printer($addressBook)
+{
+    $arr=$addressBook;
+    foreach ($arr as $person) 
+    {
+        echo sprintf("%s %s\n%s\n%s, %s\nZip - %u\nMobile- %u\n\n", $person->fname, $person->lname, $person->address, $person->city, $person->state, $person->zip, $person->phone);
+    }
+}
 /**
  * function to save the address book
  *
- * the parameter indicates an array to what to save in the json file
+ * @parameter indicates an array to what to save in the json file
  */
-function save($addressBook)
+function save(&$addressBook)
 {
     file_put_contents("AddressBook.json", json_encode($addressBook));
 }
@@ -155,7 +149,7 @@ function save($addressBook)
  */
 function menu($addressBook)
 {
-    echo "\nEnter 1 to add person\nEnter 2 to Edit a person\nEnter 3 to Delete a person\nEnter 4 to Sort and Display\n\nEnter anything to exit\n";
+    echo "\nEnter 1 to add person\nEnter 2 to Edit a person\nEnter 3 to Delete a person\nEnter 4 to Sort and Display\n enter 5 to print\nEnter anything to exit\n";
     $ch = Outility::getInt();
     switch ($ch) {
         case '1':
@@ -199,6 +193,8 @@ function menu($addressBook)
             fscanf(STDIN, "%s\n");
             menu($addressBook);
             break;
+        case '5':
+                printer($addressBook);
     }
 
 }

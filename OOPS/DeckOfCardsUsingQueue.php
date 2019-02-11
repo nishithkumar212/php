@@ -7,19 +7,15 @@
  ******************************************************************************/
 include 'Queue.php';
 include 'Outility.php';
-/**
- * creating an object for queue
- */
+ // creating an object for queue
 $obj = new Queue;
 $object = new Queue;
-/**
- * creating a usedr defined class
- */
+
+ // creating a usedr defined class 
 class DeckOfCards
 {
-    /**
-     * function to store the cards
-     */
+    
+    //  function to store the cards
     public function storecards($cards, $arrayone, $arraytwo)
     {
         for ($i = 0; $i < sizeof($arrayone); $i++) {
@@ -27,14 +23,12 @@ class DeckOfCards
                 $cards[$i][$j] = $arrayone[$i] . "" . $arraytwo[$j];
             }
         }
-    /**
-     * function to return the cards
-     */
+
+     // function to return the cards
         return $cards;
     }
-    /**
-     * function to shuffle the cards containing the parameters of storedcards and suits and ranks
-     */
+
+     // function to shuffle the cards containing the parameters of storedcards and suits and ranks 
     public function shufflecards($cardspack, $arrayone, $arraytwo)
     {
         for ($i = 0; $i < sizeof($cardspack); $i++) {
@@ -46,82 +40,61 @@ class DeckOfCards
                 $cardspack[$rand1][$rand2] = $temp;
             }
         }
-        /**
-         * function to return the shuffle cards
-         */
+         // function to return the shuffle cards
         return $cardspack;
     }
 }
-/**
- * creating an object for the user-defined class
- */
+ // creating an object for the user-defined class
 $ob = new DeckOfCards;
-/**
- * creating an array of suits containing (clubs,diamonds,hearts,spades)
- */
+
+ // creating an array of suits containing (clubs,diamonds,hearts,spades)
 $arrayone = array("Clubs", "Diamonds", "Hearts", "Spades");
-/**
- * creating an array of rank ranging from (2-10,jack ,king,queen,ace)
- */
+
+ // creating an array of rank ranging from (2-10,jack ,king,queen,ace) 
 $arraytwo = array("2", "3", "13", "5", "6", "7", "8", "9", "10", "jack", "king", "queen", "ace");
-/**
- * creating an array
- */
+
+ // creating an array 
 $cards = array();
-/**
- * calling the function to store the cards with containing the parameters
- */
+
+ // calling the function to store the cards with containing the parameters
 $cardspack = $ob->storecards($cards, $arrayone, $arraytwo);
-/**
- * calling the function to shuffle the cards with containing the parameters
- */
+
+ // calling the function to shuffle the cards with containing the parameters 
 $cardspack = $ob->shufflecards($cardspack, $arrayone, $arraytwo);
-/**
- * creating an array of players
- */
+
+ // creating an array of players 
 $rrr = array("player1", "player2", "player3", "player4");
 for ($i = 0; $i < 4; $i++) {
-    /**
-     * used to call the enqueue method to store
-     */
+
+     // used to call the enqueue method to store 
     $object->enqueue($rrr[$i]);
 }
 for ($i = 0; $i < sizeof($cardspack); $i++) {
     $array1 = array();
     for ($j = 0; $j < sizeof($cardspack[$i]); $j++) {
-        /**
-         * function used to store the elements in an array
-         */
+
+         // function used to store the elements in an array
         $array1[$j] = $cardspack[$i][$j];
     }
-    /**
-     * sorting the elements in an array
-     */
+
+     // sorting the elements in an array 
     array_multisort($array1);
     for ($k = 0; $k < sizeof($array1); $k++) {
-     /**
-      * used to call and store in a queue a  set of array elements
-      */
+
+      // used to call and store in a queue a  set of array elements
         $obj->enqueue($array1[$k]);
     }
 }
 for ($i = 0; $i < 4; $i++) {
-    /**
-     * calling the dequeue method
-     */
+     // calling the dequeue method
     $value = $object->dequeue();
-    /**
-     * printing the value of it
-     */
+     // printing the value of it
     echo $value . "::";
     for ($j = 0; $j < 9; $j++) {
-        /**
-         * calling the dequeue method and storing in the address variable
-         */
+    
+    // calling the dequeue method and storing in the address variable
         $address = $obj->dequeue();
-        /**
-         * printing the value of a variable
-         */
+    // printing the value of a variable
         echo $address . "  ";
     }
     echo "\n";

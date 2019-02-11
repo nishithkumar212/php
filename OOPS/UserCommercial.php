@@ -31,6 +31,7 @@ function CreateAccount()
 }
 /**
  * function to display the stock details
+ * @ param an array object of stockdetails
  */
 function StockDetails($address)
 {
@@ -77,9 +78,8 @@ function ToSell($arry)
         $sharevalue = $number - $str;
         $arry[$i]->share = $sharevalue;
     }
-    /**
-     * returning an array
-     */
+    
+     // returning an array; 
     return $arry;
 }
 
@@ -140,15 +140,13 @@ function menu($address)
     echo "1.create an account 2.to buy 3.to sell 4.toprint 5.exit";
     $number = Outility::getInt();
     switch ($number) {
-        /**
-             * case 1:which it is used to create an account
-             */
+        
+             // case 1:which it is used to create an account     
         case 1:CreateAccount();
             menu($address);
             break;
-        /**
-             * case2:which it is used to add the details to a user-defined account
-             */
+        
+             // case2:which it is used to add the details to a user-defined account
         case 2:StockDetails($address);
             echo "enter the stock name:";
             $uname1 = Outility::getString();
@@ -161,18 +159,16 @@ function menu($address)
             save($arry);
             menu($address);
             break;
-        /**
-             * case3:which it is used sell the stocks from the user-defined account
-             */
+
+             // case3:which it is used sell the stocks from the user-defined account 
         case 3:
             $jsonvalue = decode();
             $valuesof = ToSell($jsonvalue);
             save($valuesof);
             break;
         case 4:
-            /**
-             * case4:which it is used to print all the details of a stock json file content.
-             */
+
+             // case4:which it is used to print all the details of a stock json file content.
             $val = decode();
             ToPrint($val);
             menu($address);
@@ -181,7 +177,6 @@ function menu($address)
     }
 }
 $address = json_decode(file_get_contents('Commercialone.json'));
-/**
- * calling the function.
- */
+
+ // calling the function. 
 menu($address);

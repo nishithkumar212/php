@@ -6,66 +6,56 @@
  * @since 30-01-2019
  *
  ******************************************************************************/
-
 include 'Outility.php';
 /**
  * creating a class named stock
  */
 class Stock
 {
-    /**
-     * declaring the variables.
-     */
+    
+    // declaring the variables. 
     public $name;
     public $sharenumber;
     public $shareprice;
 
-    /**
-     * Generating getters method
-     */
+
+     // Generating getters method     
     public function getname()
     {
         return $this->name;
     }
-    /**
-     * Generating setters method
-     */
+    
+     // Generating setters method
     public function setname($name)
     {
         $this->name = $name;
     }
-    /**
-     * Generating getters method
-     */
+    
+     // Generating getters method
     public function getsharenumber()
     {
         return $this->sharenumber;
     }
-    /**
-     * Generating setters method
-     */
+
+     // Generating setters method     
     public function setsharenumber($sharenumber)
     {
         $this->sharenumber = $sharenumber;
     }
-    /**
-     * Generating getters method
-     */
+     // Generating getters method
     public function getshareprice()
     {
         return $this->shareprice;
     }
-    /**
-     * Generating the setters method
-     */
+    
+     // Generating the setters method
     public function setshareprice($shareprice)
     {
         $this->shareprice = $shareprice;
     }
 }
-/**
- * function developed to add the number of stocks to be added
- */
+
+ // function developed to add the number of stocks to be added 
 function add($number, $arr)
 {
 
@@ -76,21 +66,18 @@ function add($number, $arr)
         $sharenumber = Outility::getInt();
         echo "enter the share price:";
         $shareprice = Outility::getInt();
-        /**
-         * creating an object for a class
-         */
+        
+         // creating an object for a class 
         $obj = new Stock;
-        /**
-         * calling the setters method to initialize the value.
-         */
+    
+         // calling the setters method to initialize the value.     
         $obj->setname($name);
         $obj->setsharenumber($sharenumber);
         $obj->setshareprice($shareprice);
         $arr[$i] = $obj;
     }
-       /**
-        * returning the generated array of objects
-        */
+       
+        // returning the generated array of objects 
     return $arr;
 }
 
@@ -99,9 +86,8 @@ $number = Outility::getInt();
 $arr = array();
 $arrayone = add($number, $arr);
 $total = 0;
-/**
- * printing the each and every stock information
- */
+
+ // printing the each and every stock information 
 foreach ($arrayone as $first) {
     echo $first->name . "\n";
     echo $first->sharenumber . "\n";
@@ -109,7 +95,6 @@ foreach ($arrayone as $first) {
     echo "the stock value is:" . ($first->sharenumber * $first->shareprice) . "\n";
     $total = ($total + $first->sharenumber * $first->shareprice);
 }
-/**
- * printing the total stock value
- */
+
+ // printing the total stock value 
 echo "the total stock value is:" . $total;
