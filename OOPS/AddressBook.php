@@ -151,6 +151,8 @@ function menu($addressBook)
 {
     echo "\nEnter 1 to add person\nEnter 2 to Edit a person\nEnter 3 to Delete a person\nEnter 4 to Sort and Display\n enter 5 to print\nEnter anything to exit\n";
     $ch = Outility::getInt();
+    try
+    {
     switch ($ch) {
         case '1':
             createPerson($addressBook);
@@ -196,6 +198,11 @@ function menu($addressBook)
         case '5':
                 printer($addressBook);
     }
+}
+catch(Exception $e)
+{
+    $e->getMessage();
+}
 
 }
 $arr = json_decode(file_get_contents("AddressBook.json"));

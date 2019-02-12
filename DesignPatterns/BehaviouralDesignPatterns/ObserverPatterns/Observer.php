@@ -1,6 +1,8 @@
 <?php
+/**
+ * Creation of a abstract class named Observer
+ */
 abstract class Observer
 {
-    abstract  function  Update(Subject $subject_in);
+    abstract public function Update(Subject $subject_in);
 }
-?>

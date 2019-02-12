@@ -1,28 +1,38 @@
 <?php
 /**
+ * Purpose: program is used when the Object creation is a costly affair and requires a lot of time and resources and you have a similar object already existing.
+ * @author Nishithkumar
+ * @version 1.0
+ * @since 06-02-2019
+ *
+ ******************************************************************************/
+/**
  * creating an abstract class named Book
  */
- abstract class Book
+abstract class Book
 {
-    //declaring the variables 
+    //declaring the variables
     public $bookPage;
     public $bookColor;
     //creating an abstract method named wish
-  abstract function wish();
+    abstract public function wish();
 }
 /**
- * class named First which is use to extend the class Book
+ * Generating an Exception Handler
  */
-set_exception_handler(function ($e) 
-{
+set_exception_handler(function ($e) {
     echo "\nException Occurred\n";
     echo $e->getMessage();
 }
 );
+
+/**
+ * class named First which is use to extend the class Book
+ */
 class First extends Book
 {
     //declaring the variables.
-    private  $bookPrice;
+    private $bookPrice;
     private $bookAuthor;
     /**
      * developing the settermethod
@@ -30,46 +40,49 @@ class First extends Book
      */
     public function setBookPage($bookPage)
     {
-        $this->bookPage=$bookPage;
+        $this->bookPage = $bookPage;
     }
+
     public function setBookColor($bookColor)
     {
-        //initalizing the variable 
-        $this->bookColor=$bookColor;
+        //initalizing the variable
+        $this->bookColor = $bookColor;
     }
+
     public function setBookPrice($bookPrice)
     {
         //intializing the variable through setters method
-        $this->bookPrice=$bookPrice;
+        $this->bookPrice = $bookPrice;
     }
+
     public function setBookAuthor($bookAuthor)
     {
         //initializing the variable through setters method
-        $this->bookAuthor=$bookAuthor;
+        $this->bookAuthor = $bookAuthor;
     }
+
     /**
      * method developd to print the information about the book
      */
     public function wish()
     {
-        echo "welcome to".$this->bookAuthor."\n";
+        echo "welcome to" . $this->bookAuthor . "\n";
     }
     /**
-     * printing the details 
+     * printing the details
      */
     public function getDetails()
     {
-        echo $this->bookPage."\n";
-        echo $this->bookColor."\n";
-        echo $this->bookPrice."\n";
-        echo $this->bookAuthor."\n";
+        echo $this->bookPage . "\n";
+        echo $this->bookColor . "\n";
+        echo $this->bookPrice . "\n";
+        echo $this->bookAuthor . "\n";
     }
 }
 /**
  * class names second extending the abstract class Book
  */
-set_exception_handler(function ($e) 
-{
+set_exception_handler(function ($e) {
     echo "\nException Occurred\n";
     echo $e->getMessage();
 }
@@ -85,8 +98,8 @@ class Second extends Book
      */
     public function setBookPage($bookpage)
     {
-        //initializing the variable with the given argument 
-        $this->bookPage=$bookPage;
+        //initializing the variable with the given argument
+        $this->bookPage = $bookPage;
     }
     /**
      *  initializing the variable through setters method
@@ -94,7 +107,7 @@ class Second extends Book
      */
     public function setbookColor($bookcolor)
     {
-        $this->bookColor=$bookColor;
+        $this->bookColor = $bookColor;
     }
     /**
      *  initializing the variable through setters method
@@ -102,7 +115,7 @@ class Second extends Book
      */
     public function setbookVersion($bookVersion)
     {
-        $this->bookVersion=$bookVersion;
+        $this->bookVersion = $bookVersion;
     }
     /**
      *  initializing the variable through setters method
@@ -110,28 +123,28 @@ class Second extends Book
      */
     public function setbookSize($bookSize)
     {
-        $this->bookSize=$bookSize;
+        $this->bookSize = $bookSize;
     }
     /**
      * method developd to print the information about the book version
      */
     public function wish()
     {
-        echo "welcome to".$this->bookVersion."\n";
+        echo "welcome to" . $this->bookVersion . "\n";
     }
     /**
-     * function which it is used to print the detailed information 
+     * function which it is used to print the detailed information
      */
     public function getDetails()
     {
-        echo $this->bookpage."\n";
-        echo $this->bookcolor."\n";
-        echo $this->bookVersion."\n";
-        echo $this->bookSize."\n";
+        echo $this->bookpage . "\n";
+        echo $this->bookcolor . "\n";
+        echo $this->bookVersion . "\n";
+        echo $this->bookSize . "\n";
     }
 }
 //creating an object for the class named First
-$obj=new First;
+$obj = new First;
 //$obj->wish();
 //calling the variable and passing an argument to initialize it
 $obj->setBookPage(100);
@@ -141,14 +154,14 @@ $obj->setBookColor("blue");
 $obj->setBookPrice(120);
 //calling the variable and passing an argument to initialize it
 $obj->setBookAuthor("nishith");
-//printing the details 
+//printing the details
 $obj->getDetails();
 //cloning the object in to another object
-$cloneobj=clone $obj;
+$cloneobj = clone $obj;
 //passing the new argument from the cloned object
 $cloneobj->setBookAuthor("Nishith kumar ache");
 /**
- * function used to get the details 
+ * function used to get the details
  */
 $cloneobj->getDetails();
 $obj->getDetails();
@@ -166,6 +179,3 @@ $obj->getDetails();
 // echo"---------------------------";
 // $second=clone $objs;
 // $second->getdetails();
-
-
-

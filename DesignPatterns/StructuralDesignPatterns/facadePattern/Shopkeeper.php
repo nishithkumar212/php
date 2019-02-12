@@ -4,8 +4,7 @@ include 'Samsung.php';
 /**
  * Developed a class named Shopkeeper which is used to call the implemented methods in Nokia class and Samsung class
  */
-set_exception_handler(function ($e) 
-{
+set_exception_handler(function ($e) {
     echo "\nException Occurred\n";
     echo $e->getMessage();
 }
@@ -41,7 +40,7 @@ class Shopkeeper
     {
         //creating an object for the class
         $samsung = new Samsung;
-        //calling the method by using an object 
+        //calling the method by using an object
         $samsung->modelNo();
         //calling the method by using an object
         $samsung->price();

@@ -2,8 +2,7 @@
 /**
  * developing the interface class with an abstract method.
  */
-interface CommandExecutor 
+interface CommandExecutor
 {
-    public function  runCommand($cmd);
+    public function runCommand($cmd);
 }
-?>

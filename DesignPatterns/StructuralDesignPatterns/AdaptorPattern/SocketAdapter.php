@@ -1,6 +1,6 @@
 <?php
 /**
- * Creating an interface named SocketAdapter with the abstract methods 
+ * Creating an interface named SocketAdapter with the abstract methods
  */
 interface SocketAdapter
 {

@@ -139,6 +139,8 @@ function menu($address)
 
     echo "1.create an account 2.to buy 3.to sell 4.toprint 5.exit";
     $number = Outility::getInt();
+    try
+    {
     switch ($number) {
         
              // case 1:which it is used to create an account     
@@ -175,6 +177,11 @@ function menu($address)
             break;
         case 5:exits();
     }
+}
+catch(Exception $e)
+{
+    $e->getmessage();
+}
 }
 $address = json_decode(file_get_contents('Commercialone.json'));
 

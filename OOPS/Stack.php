@@ -1,15 +1,15 @@
 <?php
-class Node
-{
-    public $next;
-    public $data;
-    /**constructor initializing the variables  */
-    public function __construct($number) 
-    {
-        $this->data = $number;
-        $this->next = null;
-    }
-}
+// class Node
+// {
+//     public $next;
+//     public $data;
+//     /**constructor initializing the variables  */
+//     public function __construct($number) 
+//     {
+//         $this->data = $number;
+//         $this->next = null;
+//     }
+// }
 class Stack
 {
     public $top;

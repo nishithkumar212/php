@@ -104,6 +104,8 @@ function menu($address, $stacks)
 {
     echo "  enter 1.buy 2.sell  3.print 4.exit:\n";
     $choice = Outility::getInt();
+    try
+    {
     switch ($choice) {
         case '1':
             echo "enter the stock name:";
@@ -129,6 +131,11 @@ function menu($address, $stacks)
         case '4':exits();
             break;
     }
+}
+catch(Exception $e)
+{
+    $e->getMessage();
+}
 }
 
 //  function used to get the details of json file. 

@@ -108,6 +108,7 @@ function menu($object)
     $number = Outility::getInt();
     $arr = array();
     $objs = $object;
+    try{
     switch ($number) {
         case 1:
             $rrr = ToAdd($arr);
@@ -126,6 +127,11 @@ function menu($object)
             break;
 
     }
+}
+catch(Exception $e)
+{
+    $e->getmessage();
+}
 }
 
 //  creating an object for the LinkedList developed class.

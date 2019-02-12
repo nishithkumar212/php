@@ -2,8 +2,7 @@
 /**
  * Developing a class Named volt
  */
-set_exception_handler(function ($e) 
-{
+set_exception_handler(function ($e) {
     echo "\nException Occurred\n";
     echo $e->getMessage();
 }
@@ -13,11 +12,11 @@ class Volt
     //declaring the variable
     public $volts;
     /**
-     * constructor used to initialize the variable 
+     * constructor used to initialize the variable
      */
-    function __construct($volts)
+    public function __construct($volts)
     {
-        $this->volts=$volts;
+        $this->volts = $volts;
     }
     /**
      * Developing the gettermethod to return the value of a variable when it is called
@@ -31,6 +30,6 @@ class Volt
      */
     public function setVolts($v)
     {
-        $this->volts=$v;
+        $this->volts = $v;
     }
 }
