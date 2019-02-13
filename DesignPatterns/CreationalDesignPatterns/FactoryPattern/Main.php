@@ -46,3 +46,6 @@ $object = new FactoryDesign;
  * calling the main method
  */
 $object->main();
+$src=new ReflectionClass('FactoryDesign');
+print_r($src);
+print_r(get_class_methods('$src'));
