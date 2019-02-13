@@ -10,7 +10,6 @@ class Singleton
         $this->name = $names;
         $this->price = $prices;
         self::$instance++;
-
     }
     public function getDetails()
     {
@@ -36,3 +35,4 @@ for ($i = 1; $i <= $choice; $i++) {
     //creating an object for one time and displayin the details by using the same object.
     $object->getDetails() . "\n";
 }
+

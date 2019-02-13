@@ -165,6 +165,9 @@ $cloneobj->setBookAuthor("Nishith kumar ache");
  */
 $cloneobj->getDetails();
 $obj->getDetails();
+$src=new ReflectionClass('Second');
+print_r($src);
+print_r(get_class_methods($src),true);
 // echo "----------------------";
 // $objs=new Second;
 // $objs->wish();
