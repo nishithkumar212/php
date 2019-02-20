@@ -1,4 +1,13 @@
 <?php
+/**
+* Purpose: Prime Numbers to represent The Ioc .
+* @author Nishithkumar
+* @version 1.0
+* @since 13-01-2019
+*
+******************************************************************************/  
+
+
 include('Wutility.php');
 /**
  * creation of a class named Engine
@@ -61,6 +70,10 @@ class  Car
     {
         $this->Engine=$engine;
     }
+
+    /**
+     * Function which is used to call the method specifies in Engine classs
+     */
     public function call()
     {
         $this->Engine->speed();
